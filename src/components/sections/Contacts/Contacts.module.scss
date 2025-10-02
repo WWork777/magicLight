@@ -1,0 +1,68 @@
+$bg-light: #f2f2f2;
+$text: #222;
+
+.contacts {
+  padding: 80px 0;
+
+  .title {
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700;
+    margin-bottom: 32px;
+  }
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .info {
+    font-size: 16px;
+    color: $text;
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .socials {
+      display: flex;
+      gap: 12px;
+
+      a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 18px;
+        transition: background 0.3s;
+
+        &:hover {
+          background: #333;
+        }
+      }
+    }
+  }
+
+  .map {
+    width: 700px;
+    height: 350px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}

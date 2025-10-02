@@ -1,0 +1,77 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  min-height: 100vh;
+  padding: 0 10%;
+  color: white;
+
+  background-image: url('/images/Hero/Hero.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: left;
+  max-width: 1200px;
+}
+
+.title {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 100px;
+  font-weight: 700;
+  // margin-bottom: 5px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 500;
+  font-size: 38px;
+  // margin-bottom: 30px;
+}
+
+.percent {
+  font-size: 86px;
+  font-weight: 500px;
+}
+
+.button {
+  background-color: #ba8694; /* розовый */
+  color: white;
+  padding: 20px 100px;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 29px;
+  font-weight: 500;
+  border: none;
+  border-radius: 80px; /* круглые края */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #9d6f7c;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  .cta {
+    font-size: 1rem;
+    padding: 12px 30px;
+  }
+}
