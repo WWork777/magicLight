@@ -10,25 +10,15 @@ export default function Benefits() {
           <div className={`${styles.card} ${styles.card1}`}>
             <div className={styles.left}>
               <Image
-                src='/icons/Benefits/logo.svg' // логотип студии
+                src='/icons/Benefits/logo.svg'
                 alt='Логотип'
-                width={600}
-                height={170}
-                // className={styles.logo}
+                width={260}
+                height={130}
+                className='styles.logo'
               />
               <h3 className={styles.title}>
                 Обеспечивает высокое качество и безопасность
               </h3>
-            </div>
-            <div className={styles.right}>
-              <Image
-                src='/images/Benefits/Quality.webp' // фото (как на референсе)
-                alt='Эпиляция'
-                width={600}
-                height={120}
-                // fill
-                // className={styles.cover}
-              />
             </div>
           </div>
 
@@ -44,15 +34,17 @@ export default function Benefits() {
             <div className={styles.textWhite}>
               <h3>Индивидуальный подход</h3>
               <p>
-                Мы подбираем наиболее подходящий курс процедур, исходя из
-                эффективности для клиента
+                Мы подбираем наиболее подходящий <br /> курс процедур, исходя{' '}
+                <br /> из эффективности для клиента
               </p>
             </div>
           </div>
 
           {/* Card 3 */}
           <div className={`${styles.card} ${styles.card3} ${styles.colored}`}>
-            <p>Заметный результат после 1-й процедуры</p>
+            <p>
+              Заметный <br /> результат после 1-ой <br /> процедуры
+            </p>
             <div className={styles.icon}>
               <Image
                 src='/icons/Benefits/leaf.svg'
@@ -65,14 +57,10 @@ export default function Benefits() {
 
           {/* Card 4 */}
           <div className={`${styles.card} ${styles.card4}`}>
-            <h4>Безопасно и безболезненно</h4>
-            <div className={styles.image}>
-              <Image
-                src='/images/Benefits/Safety.webp'
-                alt='Безопасность'
-                width={200}
-                height={140}
-              />
+            <div className={styles.up}>
+              <h3>
+                Безопасно <br /> и безболезненно
+              </h3>
             </div>
           </div>
 
@@ -84,32 +72,32 @@ export default function Benefits() {
               fill
               className={styles.bgImage}
             />
-            <div className={styles.overlay}></div>
-            <div className={styles.text}>
-              <h4>Хорошее оборудование</h4>
+            <div className={styles.up}>
+              <h3>Хорошее оборудование</h3>
               <p>
-                Лазеры с регистрационным удостоверением, подтверждающим
-                безопасность и эффективность
+                Лазеры с регистрационным <br /> удостоверением, подтверждающим{' '}
+                <br />
+                безопасность и эффективность лазера
               </p>
             </div>
           </div>
 
           {/* Card 6 */}
           <div className={`${styles.card} ${styles.card6}`}>
-            <h4>Длительный эффект после курса процедур</h4>
-            <div className={styles.image}>
-              <Image
-                src='/images/Benefits/Effect.webp'
-                alt='Девушка'
-                width={200}
-                height={160}
-              />
+            <div className={styles.up}>
+              <h3>
+                Длительный
+                <br /> эффект после курса <br />
+                процедур
+              </h3>
             </div>
           </div>
 
           {/* Card 7 */}
           <div className={`${styles.card} ${styles.card7} ${styles.colored}`}>
-            <p>Доступные цены</p>
+            <p>
+              Доступные <br /> цены
+            </p>
             <div className={styles.icon}>
               <Image
                 src='/icons/Benefits/ruble.svg'
@@ -123,15 +111,17 @@ export default function Benefits() {
           {/* Card 8 */}
           <div className={`${styles.card} ${styles.card8}`}>
             <div className={styles.text}>
-              <h4>Система скидок</h4>
-              <p>по карте каждому клиенту — 1, 4, 7, 10 посещения = 25%</p>
+              <h3>Система скидок</h3>
+              <p>
+                по карте каждому <br /> клиенту — 1, 4, 7, 10 посещения = 25%
+              </p>
             </div>
             <div className={styles.icon}>
               <Image
                 src='/icons/Benefits/saleIcon.svg'
                 alt='Иконка скидки'
-                width={40}
-                height={40}
+                width={200}
+                height={200}
               />
             </div>
           </div>
@@ -141,17 +131,9 @@ export default function Benefits() {
             <div className={styles.text}>
               <h3>Работают профессионалы</h3>
               <p>
-                Все наши специалисты на постоянной основе повышают квалификацию
-                и сдают экзамены
+                Все наши специалисты на постоянной основе повышают свою
+                квалификацию и сдают аттестационные экзамены
               </p>
-            </div>
-            <div className={styles.image}>
-              <Image
-                src='/images/Benefits/Professional.webp'
-                alt='Специалист'
-                width={120}
-                height={120}
-              />
             </div>
           </div>
         </div>

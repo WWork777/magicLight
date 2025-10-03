@@ -13,7 +13,14 @@ export default function Hero() {
           <p className={styles.subtitle}>
             Скидка <span className={styles.percent}>25%</span> новичкам
           </p>
-          <button className={styles.button}>Записаться</button>
+          <a
+            href='https://wa.me/79039166251'
+            target='_blank'
+            rel='noopener noreferrer'
+            className={styles.button}
+          >
+            Записаться
+          </a>
         </div>
       </div>
     </section>

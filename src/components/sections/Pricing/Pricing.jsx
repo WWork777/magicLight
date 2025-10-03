@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { servicesData } from '@/data/services';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,6 +11,17 @@ export default function Pricing() {
   const [serviceType, setServiceType] = useState('laser'); // laser | lpg
   const [gender, setGender] = useState('female'); // female | male (только для laser)
   const [category, setCategory] = useState('Комплексы');
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 640);
+    };
+
+    handleResize(); // инициализация
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Получаем список категорий
   const categories =
@@ -88,12 +99,13 @@ export default function Pricing() {
         )}
 
         {/* Сами карточки */}
+
         <Swiper
           spaceBetween={20}
           slidesPerView={1.2}
           breakpoints={{
-            640: { slidesPerView: 2.2 },
-            1024: { slidesPerView: 3.2 },
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
           }}
         >
           {services.map((service) => (
@@ -116,7 +128,14 @@ export default function Pricing() {
                   <span className={styles.ruble}>₽</span>
                 </p>
                 <div className={styles.actions}>
-                  <button className={styles.btn}>Записаться</button>
+                  <a
+                    href='https://wa.me/79039166251'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className={styles.btn}
+                  >
+                    Записаться
+                  </a>
                   <a
                     href='https://wa.me/79000000000'
                     target='_blank'

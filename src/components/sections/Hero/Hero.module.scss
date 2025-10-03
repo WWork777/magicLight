@@ -1,3 +1,41 @@
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.05) translateY(-3px);
+  }
+  60% {
+    transform: scale(0.97) translateY(2px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
 .hero {
   position: relative;
   display: flex;
@@ -6,6 +44,7 @@
   min-height: 100vh;
   padding: 0 10%;
   color: white;
+  scroll-margin-top: 50px;
 
   background-image: url('/images/Hero/Hero.webp');
   background-size: cover;
@@ -23,55 +62,76 @@
   z-index: 1;
   text-align: left;
   max-width: 1200px;
+
+  // Анимация контейнера
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.3s;
 }
 
 .title {
   font-family: var(--font-montserrat), sans-serif;
-  font-size: 100px;
+  font-size: clamp(45px, 7vw, 100px);
   font-weight: 700;
-  // margin-bottom: 5px;
   line-height: 1.2;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.5s;
 }
 
 .subtitle {
   font-family: var(--font-montserrat), sans-serif;
   font-weight: 500;
-  font-size: 38px;
-  // margin-bottom: 30px;
+  font-size: clamp(18px, 5vw, 38px);
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.8s;
 }
 
 .percent {
-  font-size: 86px;
+  font-size: clamp(35px, 5vw, 86px);
   font-weight: 500px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 1s;
 }
 
 .button {
   background-color: #ba8694; /* розовый */
   color: white;
   padding: 20px 100px;
+  text-decoration: none;
   font-family: var(--font-montserrat), sans-serif;
-  font-size: 29px;
+  font-size: clamp(16px, 4vw, 29px);
   font-weight: 500;
   border: none;
   border-radius: 80px; /* круглые края */
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
+  opacity: 0;
 
-.button:hover {
-  background-color: #9d6f7c;
+  // 👇 Анимация появления
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 1.2s;
+
+  // 👇 Пульсация после появления
+  animation-name: fadeInUp, pulse;
+  animation-duration: 0.8s, 2s;
+  animation-delay: 1.2s, 2s; // Пульс начнется через 2с
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1, infinite;
+  animation-timing-function: ease, ease-in-out;
+
+  &:hover {
+    background-color: #9d6f7c;
+    transform: scale(1.06);
+  }
 }
 
 /* Адаптив */
 @media (max-width: 768px) {
-  .title {
-    font-size: 2rem;
-  }
-  .subtitle {
-    font-size: 1.2rem;
-  }
-  .cta {
-    font-size: 1rem;
-    padding: 12px 30px;
+  .button {
+    width: 100%;
+    text-align: center;
   }
 }

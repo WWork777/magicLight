@@ -22,6 +22,16 @@ export default function Reviews() {
     }
   }, []);
 
+  const reviewLinks = {
+    gis2: 'https://2gis.ru/kemerovo/firm/70000001039981624/tab/reviews',
+    yandex: 'https://yandex.ru/maps/org/volshebny_svet/167080733865/reviews/',
+  };
+
+  const icons = {
+    gis2: '/icons/Reviews/2gis.svg',
+    yandex: '/icons/Reviews/yandex.svg',
+  };
+
   return (
     <section id='reviews' className={styles.reviews}>
       <div className='container'>
@@ -60,16 +70,21 @@ export default function Reviews() {
               <span className={styles.score}>5.0</span>
               <div className={styles.stars}>{'★'.repeat(5)}</div>
               <Image
-                src='/icons/Reviews/2gis.svg'
-                alt='2GIS'
+                src={icons[source]}
+                alt={source}
                 width={18}
                 height={18}
                 className='style.icon'
               />
             </div>
             <div className={styles.subtext}>68 отзывов • 89 оценок</div>
-            <a href='#' className={styles.leaveReview}>
-              Оставить отзыв
+            <a
+              href={reviewLinks[source]}
+              target='_blank'
+              rel='noopener noreferrer'
+              className={styles.leaveReview}
+            >
+              {source === 'gis2' ? 'Оставить отзыв' : 'Оставить отзыв'}
             </a>
           </div>
         </div>

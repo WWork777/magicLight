@@ -80,7 +80,7 @@ export default function SpecialOffers() {
   }, []);
 
   return (
-    <section className={styles.offers}>
+    <section id='offers' className={styles.offers}>
       <div className='container'>
         <h2 className={styles.title}>Специальные предложения</h2>
 
@@ -106,6 +106,17 @@ export default function SpecialOffers() {
             }}
             spaceBetween={-20}
             slidesPerView={3}
+            breakpoints={{
+              1024: {
+                slidesPerView: 3,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              0: {
+                slidesPerView: 1,
+              },
+            }}
             centeredSlides
             loop
             speed={600}

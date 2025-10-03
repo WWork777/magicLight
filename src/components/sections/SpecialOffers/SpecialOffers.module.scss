@@ -3,6 +3,7 @@ $radius: 50px;
 
 .offers {
   padding: 60px 0;
+  scroll-margin-top: 50px;
 
   .title {
     font-family: var(--font-montserrat), sans-serif;
@@ -214,20 +215,91 @@ $radius: 50px;
     }
   }
 
-  /* Мобильная адаптация */
-  @media (max-width: 768px) {
-    .navButton {
-      display: none;
-    }
+  @media (max-width: 1024px) {
+    .offers {
+      .swiper {
+        width: 300;
+        padding: 10px 0;
 
-    .swiper {
-      :global(.swiper-slide) {
-        margin-inline: 0;
-        transform: scale(0.95);
+        :global(.swiper-slide) {
+          height: 400px;
+        }
       }
 
-      :global(.swiper-slide-active) {
-        transform: scale(1);
+      .card {
+        width: 90%;
+
+        .content {
+          h3 {
+            font-size: 28px;
+          }
+
+          .button {
+            font-size: 16px;
+            padding: 10px 20px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .offers {
+      padding: 10px 0;
+
+      .title {
+        font-size: 32px;
+        margin-bottom: 24px;
+      }
+
+      .swiper {
+        padding: 10px 0;
+
+        :global(.swiper-slide) {
+          height: auto;
+          transform: scale(1);
+          opacity: 1;
+        }
+
+        :global(.swiper-slide-active) {
+          transform: scale(1.02);
+        }
+      }
+
+      .card {
+        width: 100%;
+        height: auto;
+
+        .content {
+          padding: 16px;
+
+          h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+          }
+
+          .button {
+            padding: 10px 18px;
+            font-size: 15px;
+          }
+        }
+      }
+
+      .navButton {
+        display: none;
+      }
+    }
+  }
+  @media (max-width: 600px) {
+    .modal {
+      padding: 20px;
+
+      h3 {
+        font-size: 18px;
+      }
+
+      p {
+        font-size: 14px;
       }
     }
   }

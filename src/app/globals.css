@@ -11,6 +11,11 @@ body {
   line-height: 1.5;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 /* Контейнер для всей страницы */
 .container {
   width: 100%;
