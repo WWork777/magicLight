@@ -6,11 +6,11 @@ $brand: #ba8694;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 1280px;
+  max-width: 1480px;
   padding: 0 20px;
   margin-top: 20px;
-  background: #e6e6e62e;
-  backdrop-filter: blur(18.3px);
+  background: #cccccc2e;
+  backdrop-filter: blur(25px);
   border-radius: 50px;
   z-index: 1000;
 
@@ -42,7 +42,7 @@ $brand: #ba8694;
       text-decoration: none;
       color: #000;
       font-family: var(--font-wix), sans-serif;
-      font-size: 16px;
+      font-size: 20px;
       font-weight: 500;
       transition: color 0.2s;
 
@@ -68,21 +68,33 @@ $brand: #ba8694;
     gap: 15px;
   }
 
-  .phone {
+  .desktop_phone {
     font-family: var(--font-wix), sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
     color: #000;
     text-decoration: none;
+
+    @media (max-width: 420px) {
+      display: none;
+    }
   }
 
   .icons {
     display: flex;
     gap: 10px;
+    a {
+      height: 30px;
+    }
 
     img {
-      width: 20px;
-      height: 20px;
+      width: 30px;
+      height: 30px;
+      transition: 0.1s all;
+
+      &:hover {
+        transform: scale(1.02);
+      }
     }
   }
 
@@ -141,13 +153,15 @@ $brand: #ba8694;
     z-index: 9999;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
 
     // Шапка внутри моб.меню
     .mobileMenuHeader {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 5px 10px;
+      padding: 5px 20px;
       border-bottom: 1px solid #ddd;
     }
 
@@ -157,15 +171,41 @@ $brand: #ba8694;
       font-family: var(--font-wix), sans-serif;
     }
 
+    // Соцсети над ссылками
+    .mobileSocials {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
     // Навигация
-    ul {
+    .mobileNav {
       list-style: none;
-      padding: 40px 0 0;
+      padding: 0;
       margin: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 24px;
+      flex-grow: 1;
+      justify-content: center;
 
       li a {
         font-family: var(--font-montserrat), sans-serif;
@@ -173,6 +213,27 @@ $brand: #ba8694;
         font-weight: 600;
         color: #222;
         text-decoration: none;
+        transition: color 0.2s;
+
+        &:hover {
+          color: $brand;
+        }
+      }
+    }
+
+    // Номер телефона под ссылками
+    .mobilePhone {
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+
+      a {
+        font-family: var(--font-wix), sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #ba8694;
+        text-decoration: none;
+        transition: color 0.2s;
 
         &:hover {
           color: $brand;
