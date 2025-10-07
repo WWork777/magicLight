@@ -136,11 +136,10 @@ $montserat: var(--font-montserrat), sans-serif;
     // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
-    height: 100%;
-    min-height: 470px;
-    transition: all 0.3s ease;
-    gap: 12px;
-    position: relative;
+    height: 500;
+    width: 100%;
+    transition: 0.3s;
+    gap: 10px;
 
     &:hover {
       transform: translateY(-6px);
@@ -149,8 +148,8 @@ $montserat: var(--font-montserrat), sans-serif;
     .imgWrapper {
       position: relative;
       width: 100%;
-      padding-top: 65%; // увеличен для лучшего соотношения
-      border-radius: 30px;
+      padding-top: 55%;
+      border-radius: $radius;
       overflow: hidden;
       margin-bottom: 8px;
 
