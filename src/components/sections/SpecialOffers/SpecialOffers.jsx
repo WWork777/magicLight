@@ -11,59 +11,57 @@ import { useEffect, useRef, useState } from 'react';
 const offers = [
   {
     id: 1,
-    title: 'Подарочный сертификат',
-    image: '/images/SpecialOffers/cert.webp',
-    description:
-      'Вы можете подарить заботу и комфорт близкому человеку с помощью сертификата на любые процедуры.',
+    title: 'Заходи на канал',
+    image: '/images/SpecialOffers/studio1.webp',
+    description: 'И будь в курсе выгодных акций и предложений.',
   },
   {
     id: 2,
-    title: 'Абонементы',
-    image: '/images/SpecialOffers/abonement.webp',
-    description:
-      'Приобретайте абонементы на курс процедур и экономьте до 30% от полной стоимости.',
-  },
-  {
-    id: 3,
-    title: 'Скидки',
-    image: '/images/SpecialOffers/discount.webp',
-    description:
-      'Специальные сезонные акции и скидки на самые популярные услуги.',
-  },
-  {
-    id: 4,
-    title: 'Подготовка к процедуре',
-    image: '/images/SpecialOffers/Individual.webp',
-    description:
-      'Узнайте, как правильно подготовиться к процедуре для максимального результата.',
-  },
-  {
-    id: 5,
     title: 'Подарочный сертификат',
-    image: '/images/SpecialOffers/cert.webp',
+    image: '/images/SpecialOffers/cert3.webp',
     description:
       'Вы можете подарить заботу и комфорт близкому человеку с помощью сертификата на любые процедуры.',
   },
   {
-    id: 6,
+    id: 3,
     title: 'Абонементы',
-    image: '/images/SpecialOffers/abonement.webp',
+    image: '/images/SpecialOffers/abonement1.webp',
     description:
       'Приобретайте абонементы на курс процедур и экономьте до 30% от полной стоимости.',
   },
   {
-    id: 7,
+    id: 4,
     title: 'Скидки',
-    image: '/images/SpecialOffers/discount.webp',
+    image: '/images/SpecialOffers/sales.webp',
     description:
       'Специальные сезонные акции и скидки на самые популярные услуги.',
   },
   {
-    id: 8,
-    title: 'Подготовка к процедуре',
-    image: '/images/SpecialOffers/Individual.webp',
+    id: 5,
+    title: 'Заходи на канал',
+    image: '/images/SpecialOffers/studio1.webp',
+    description: 'И будь в курсе выгоднывх акций и предложений.',
+  },
+  {
+    id: 6,
+    title: 'Подарочный сертификат',
+    image: '/images/SpecialOffers/cert3.webp',
     description:
-      'Узнайте, как правильно подготовиться к процедуре для максимального результата.',
+      'Вы можете подарить заботу и комфорт близкому человеку с помощью сертификата на любые процедуры.',
+  },
+  {
+    id: 7,
+    title: 'Абонементы',
+    image: '/images/SpecialOffers/abonement1.webp',
+    description:
+      'Приобретайте абонементы на курс процедур и экономьте до 30% от полной стоимости.',
+  },
+  {
+    id: 8,
+    title: 'Скидки',
+    image: '/images/SpecialOffers/sales.webp',
+    description:
+      'Специальные сезонные акции и скидки на самые популярные услуги.',
   },
 ];
 
@@ -134,12 +132,27 @@ export default function SpecialOffers() {
                 <div className={styles.overlay} />
                 <div className={styles.content}>
                   <h3>{offer.title}</h3>
-                  <button
-                    className={styles.button}
-                    onClick={() => setSelected(offer)}
-                  >
-                    Подробнее
-                  </button>
+
+                  {[1, 5].includes(offer.id) ? (
+                    <>
+                      <p className={styles.description}>{offer.description}</p>
+                      <a
+                        href='https://t.me/VSVET25'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className={styles.button}
+                      >
+                        Перейти в Telegram
+                      </a>
+                    </>
+                  ) : (
+                    <button
+                      className={styles.button}
+                      onClick={() => setSelected(offer)}
+                    >
+                      Подробнее
+                    </button>
+                  )}
                 </div>
               </SwiperSlide>
             ))}
