@@ -7,29 +7,43 @@ $brand: #ba8694;
   transform: translateX(-50%);
   width: 100%;
   max-width: 1280px;
-  padding: 0 20px;
+  padding: 0 15px;
   margin-top: 20px;
   background: #cccccc2e;
   backdrop-filter: blur(25px);
   border-radius: 50px;
   z-index: 1000;
+  transition: all 0.3s ease;
 
   .inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 5px;
   }
 
   .left {
     flex: 0 0 auto;
+
+    a {
+      display: flex;
+    }
+
+    @media (max-width: 430) {
+      margin-left: -5%;
+    }
+
+    @media (max-width: 376) {
+      margin-left: -2%;
+    }
   }
 
   .center {
     position: absolute;
     left: 30%;
     transform: translateX(-50%);
+
     ul {
       display: flex;
       gap: 30px;
@@ -42,7 +56,7 @@ $brand: #ba8694;
       text-decoration: none;
       color: #000;
       font-family: var(--font-wix), sans-serif;
-      font-size: 20px;
+      font-size: clamp(16px, 1.3vw, 20px);
       font-weight: 500;
       transition: color 0.2s;
 
@@ -56,12 +70,24 @@ $brand: #ba8694;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.7);
+    gap: 14px;
+    background: #d9d9d9;
     backdrop-filter: blur(18.3px);
     border-radius: 50px;
-    padding: 6px 12px;
+    padding: 12px 12px;
     max-width: 100%;
+
+    @media (max-width: 835px) {
+      margin-left: -6%;
+    }
+
+    @media (max-width: 430px) {
+      margin-left: -5%;
+    }
+
+    @media (max-width: 376) {
+      margin-left: -10%;
+    }
   }
 
   .desktop_phone {
@@ -78,7 +104,8 @@ $brand: #ba8694;
 
   .icons {
     display: flex;
-    gap: 10px;
+    gap: 12px;
+
     a {
       height: 30px;
     }
@@ -89,7 +116,7 @@ $brand: #ba8694;
       transition: 0.1s all;
 
       &:hover {
-        transform: scale(1.02);
+        transform: scale(1.05);
       }
     }
   }
@@ -99,8 +126,16 @@ $brand: #ba8694;
     align-items: center;
     justify-content: center;
 
-    @media (min-width: 1025px) {
+    @media (min-width: 835px) {
       display: none;
+    }
+
+    @media (max-width: 430) {
+      margin-right: 5%;
+    }
+
+    @media (max-width: 376) {
+      margin-right: 2%;
     }
   }
 
@@ -108,11 +143,12 @@ $brand: #ba8694;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 5px;
+    gap: 6px;
     width: 28px;
     height: 28px;
     cursor: pointer;
     z-index: 10000;
+    margin-right: 10%;
 
     span {
       height: 2px;
@@ -150,7 +186,8 @@ $brand: #ba8694;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px 0;
+    padding: 10px 0;
+    animation: fadeIn 0.3s ease;
 
     .mobileMenuHeader {
       display: flex;
@@ -159,18 +196,17 @@ $brand: #ba8694;
       padding: 5px 20px;
       border-bottom: 1px solid #ddd;
     }
+    .left {
+      flex: 0 0 auto;
 
-    .logo {
-      font-size: 22px;
-      font-weight: 600;
-      font-family: var(--font-wix), sans-serif;
+      a {
+        display: flex;
+      }
     }
-
-    // Соцсети над ссылками
     .mobileSocials {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 10px;
       padding: 10px 0;
 
       a {
@@ -190,7 +226,6 @@ $brand: #ba8694;
       }
     }
 
-    // Навигация
     .mobileNav {
       list-style: none;
       padding: 0;
@@ -198,7 +233,7 @@ $brand: #ba8694;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 24px;
+      gap: 12px;
       flex-grow: 1;
       justify-content: center;
 
@@ -216,7 +251,6 @@ $brand: #ba8694;
       }
     }
 
-    // Номер телефона под ссылками
     .mobilePhone {
       display: flex;
       justify-content: center;
@@ -225,8 +259,8 @@ $brand: #ba8694;
       a {
         font-family: var(--font-wix), sans-serif;
         font-size: 18px;
-        font-weight: 600;
-        color: #ba8694;
+        font-weight: 500;
+        color: #000;
         text-decoration: none;
         transition: color 0.2s;
 
@@ -248,54 +282,96 @@ $brand: #ba8694;
     }
   }
 
-  // Адаптивные брейкпоинты
+  /* ========== НОУТБУКИ (≤1440px) ========== */
+  @media (max-width: 1441px) {
+    max-width: 1280px;
 
-  @media (max-width: 1024px) {
-    .center {
-      display: none;
+    .center ul {
+      gap: 24px;
     }
   }
 
-  @media (max-width: 768px) {
+  /* ========== ПЛАНШЕТЫ (≤834px) ========== */
+  @media (max-width: 835px) {
+    border-radius: 40px;
+    padding: 0 30px;
     .center {
       display: none;
-    }
-
-    .contacts {
-      display: none;
-    }
-
-    .burger {
-      display: flex;
     }
 
     .right {
-      padding: 6px 12px;
-      gap: 8px;
+      padding: 8px 10px;
+      gap: 10px;
+    }
+
+    .icons img {
+      width: 26px;
+      height: 26px;
+    }
+
+    .desktop_phone {
+      font-size: 18px;
+      font-weight: 500;
     }
   }
 
-  @media (max-width: 390px) {
-    .header {
-      width: 100%;
-      max-width: 250px;
-    }
+  /* ========== СМАРТФОНЫ (≤430px) ========== */
+  @media (max-width: 431px) {
+    border-radius: 40px;
+    padding: 0 30px;
+
     .inner {
       gap: 12px;
     }
 
     .right {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      gap: 8px;
+      padding: 16px;
     }
 
-    .phone {
-      font-size: 12px;
+    .icons img {
+      width: 32px;
+      height: 32px;
     }
 
     .burger {
-      width: 24px;
-      height: 24px;
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  /* ========== КОМПАКТНЫЕ (≤375px) ========== */
+  @media (max-width: 376px) {
+    align-items: center;
+    border-radius: 32px;
+    padding: 0 15px;
+
+    .right {
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+    }
+
+    .burger {
+      width: 25px;
+      height: 25px;
+    }
+
+    .icons img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  /* ========== ОТКЛЮЧЕНИЕ hover НА ТАЧ-ЭКРАНАХ ========== */
+  @media (hover: none) {
+    a:hover,
+    .icons img:hover {
+      transform: none;
+      color: inherit;
     }
   }
 }

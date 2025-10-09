@@ -1,20 +1,20 @@
-import styles from "./Benefits.module.scss";
-import Image from "next/image";
+import styles from './Benefits.module.scss';
+import Image from 'next/image';
 
 export default function Benefits() {
   return (
-    <section id="benefits" className={styles.benefits}>
-      <div className="container">
+    <section id='benefits' className={styles.benefits}>
+      <div className='container'>
         <div className={styles.grid}>
           {/* Card 1 */}
           <div className={`${styles.card} ${styles.card1}`}>
             <div className={styles.left}>
               <Image
-                src="/icons/Benefits/logo.svg"
-                alt="Логотип"
-                width={260}
-                height={130}
-                className="styles.logo"
+                src='/icons/Benefits/logo.webp'
+                alt='Логотип'
+                width={300}
+                height={120}
+                className='styles.logo'
               />
               <h3 className={styles.title}>
                 Обеспечивает высокое качество и безопасность
@@ -25,8 +25,8 @@ export default function Benefits() {
           {/* Card 2 */}
           <div className={`${styles.card} ${styles.card2}`}>
             <Image
-              src="/images/Benefits/Individual.webp"
-              alt="Индивидуальный подход"
+              src='/images/Benefits/Individual.webp'
+              alt='Индивидуальный подход'
               fill
               className={styles.bgImage}
             />
@@ -34,7 +34,7 @@ export default function Benefits() {
             <div className={styles.textWhite}>
               <h3>Индивидуальный подход</h3>
               <p>
-                Мы подбираем наиболее подходящий <br /> курс процедур, исходя{" "}
+                Мы подбираем наиболее подходящий <br /> курс процедур, исходя{' '}
                 <br /> из эффективности для клиента
               </p>
             </div>
@@ -47,8 +47,8 @@ export default function Benefits() {
             </p>
             <div className={styles.icon}>
               <Image
-                src="/icons/Benefits/leaf.svg"
-                alt="Лист"
+                src='/icons/Benefits/leaf.svg'
+                alt='Лист'
                 width={24}
                 height={24}
               />
@@ -67,15 +67,15 @@ export default function Benefits() {
           {/* Card 5 */}
           <div className={`${styles.card} ${styles.card5}`}>
             <Image
-              src="/images/Benefits/Equipment.webp"
-              alt="Оборудование"
+              src='/images/Benefits/Equipment.webp'
+              alt='Оборудование'
               fill
               className={styles.bgImage}
             />
             <div className={styles.up}>
               <h3>Хорошее оборудование</h3>
               <p className={styles.mobile}>
-                Лазеры с регистрационным <br /> удостоверением, подтверждающим{" "}
+                Лазеры с регистрационным <br /> удостоверением, подтверждающим{' '}
                 <br />
                 безопасность и эффективность лазера
               </p>
@@ -100,8 +100,8 @@ export default function Benefits() {
             </p>
             <div className={styles.icon}>
               <Image
-                src="/icons/Benefits/ruble.svg"
-                alt="Рубль"
+                src='/icons/Benefits/ruble.svg'
+                alt='Рубль'
                 width={24}
                 height={24}
               />
@@ -118,8 +118,8 @@ export default function Benefits() {
             </div>
             <div className={styles.icon}>
               <Image
-                src="/icons/Benefits/saleIcon.svg"
-                alt="Иконка скидки"
+                src='/icons/Benefits/saleIcon.svg'
+                alt='Иконка скидки'
                 width={200}
                 height={200}
               />

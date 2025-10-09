@@ -22,10 +22,10 @@ export default function Header() {
         <div className={styles.left}>
           <Link href='/'>
             <Image
-              src='/icons/Header/logo.svg'
+              src='/icons/Header/logo1.webp'
               alt='Логотип'
-              width={60}
-              height={60}
+              width={80}
+              height={70}
               priority
             />
           </Link>
@@ -96,18 +96,16 @@ export default function Header() {
       {isMenuOpen && (
         <div className={styles.mobileMenu}>
           <div className={styles.mobileMenuHeader}>
-            <div className={styles.logo}>
+            <div className={styles.mobileLeft}>
               <Image
-                src='/icons/Header/logo.svg'
+                src='/icons/Header/logo1.webp'
                 alt='Логотип'
-                width={60}
-                height={60}
+                width={80}
+                height={70}
                 priority
               />
             </div>
           </div>
-
-          {/* Соцсети над ссылками */}
 
           {/* Навигационные ссылки */}
           <ul className={styles.mobileNav}>

@@ -98,6 +98,7 @@ $montserat: var(--font-montserrat), sans-serif;
       font-size: 15px;
       transition: all 0.3s;
       white-space: nowrap;
+      color: #000;
 
       &.active {
         background: $brand;

@@ -1,4 +1,4 @@
-$radius: 30px;
+$radius: 26px;
 $gap: 20px;
 $brand: #ba8694;
 $brand-hover: #9d6f7c;
@@ -15,11 +15,11 @@ $Bg: #e7e7e7;
     grid-auto-rows: 240px;
     gap: $gap;
     grid-template-areas:
-      "card1 card1 card2 card2"
-      "card3 card4 card5 card5"
-      "card6 card4 card5 card5"
-      "card6 card7 card5 card5"
-      "card8 card8 card9 card9";
+      'card1 card1 card2 card2'
+      'card3 card4 card5 card5'
+      'card6 card4 card5 card5'
+      'card6 card7 card5 card5'
+      'card8 card8 card9 card9';
   }
 
   .card {
@@ -37,7 +37,7 @@ $Bg: #e7e7e7;
     cursor: pointer;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       inset: 0;
       background: linear-gradient(
@@ -66,14 +66,12 @@ $Bg: #e7e7e7;
 
       .icon {
         transform: scale(1.1) rotate(5deg);
-        border-color: rgba(255, 255, 255, 0.8);
       }
     }
 
     .overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.3);
       border-radius: $radius;
       z-index: 0;
       transition: all 0.4s ease;
@@ -107,7 +105,7 @@ $Bg: #e7e7e7;
     &.card1 {
       grid-area: card1;
       background: #fff;
-      border-radius: 16px;
+      border-radius: $radius;
       overflow: hidden;
       padding: 24px;
       display: flex;
@@ -116,13 +114,13 @@ $Bg: #e7e7e7;
       min-height: 200px;
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         right: 0;
         bottom: 0;
         top: 0;
         width: 100%;
-        background: url("/images/Benefits/Quality.webp") no-repeat right bottom;
+        background: url('/images/Benefits/Quality.webp') no-repeat right bottom;
         background-size: contain;
         transition: transform 0.6s ease;
 
@@ -240,13 +238,13 @@ $Bg: #e7e7e7;
       justify-content: flex-start;
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         right: 0;
         top: 0;
         bottom: 0;
         width: 100%;
-        background: url("/images/Benefits/Safety.webp") no-repeat right bottom;
+        background: url('/images/Benefits/Safety.webp') no-repeat right bottom;
         background-size: contain;
         transition: transform 0.6s ease;
       }
@@ -302,10 +300,10 @@ $Bg: #e7e7e7;
       justify-content: flex-start;
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         inset: 0;
-        background: url("/images/Benefits/Effect.webp") no-repeat right bottom;
+        background: url('/images/Benefits/Effect.webp') no-repeat right bottom;
         background-size: contain;
         transition: transform 0.6s ease;
       }
@@ -405,13 +403,13 @@ $Bg: #e7e7e7;
       }
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         bottom: 0;
         right: 0;
         width: 220px;
         height: 100%;
-        background: url("/images/Benefits/Professional.webp") no-repeat bottom
+        background: url('/images/Benefits/Professional.webp') no-repeat bottom
           right;
         background-size: contain;
       }
@@ -456,12 +454,12 @@ $Bg: #e7e7e7;
     .grid {
       grid-template-columns: repeat(2, 1fr);
       grid-template-areas:
-        "card1 card1"
-        "card2 card3"
-        "card4 card5"
-        "card6 card5"
-        "card7 card8"
-        "card9 card9";
+        'card1 card1'
+        'card2 card3'
+        'card4 card5'
+        'card6 card5'
+        'card7 card8'
+        'card9 card9';
       grid-auto-rows: minmax(180px, auto);
     }
 
@@ -508,15 +506,15 @@ $Bg: #e7e7e7;
     .grid {
       grid-template-columns: 1fr;
       grid-template-areas:
-        "card1"
-        "card2"
-        "card3"
-        "card4"
-        "card5"
-        "card6"
-        "card7"
-        "card8"
-        "card9";
+        'card1'
+        'card2'
+        'card3'
+        'card4'
+        'card5'
+        'card6'
+        'card7'
+        'card8'
+        'card9';
       gap: 12px;
       grid-auto-rows: auto;
     }
@@ -524,7 +522,7 @@ $Bg: #e7e7e7;
     .card {
       padding: 20px 16px;
       min-height: auto;
-      border-radius: 20px;
+      border-radius: $radius;
       aspect-ratio: unset;
 
       // Общие улучшения для мобильных
@@ -535,14 +533,14 @@ $Bg: #e7e7e7;
       }
 
       p {
-        font-size: 14px !important;
+        font-size: 16px !important;
         line-height: 1.4 !important;
       }
 
-      // Убираем все br в мобильной версии
-      br {
-        display: none !important;
-      }
+      // // Убираем все br в мобильной версии
+      // br {
+      //   display: none !important;
+      // }
 
       // Адаптация конкретных карточек
       &.card1 {
@@ -583,11 +581,11 @@ $Bg: #e7e7e7;
           text-align: right;
 
           h3 {
-            font-size: 18px !important;
+            font-size: 20px !important;
           }
 
           p {
-            font-size: 13px !important;
+            font-size: 14px !important;
           }
         }
       }
@@ -601,7 +599,7 @@ $Bg: #e7e7e7;
         padding: 16px;
 
         p {
-          font-size: 16px !important;
+          font-size: 20px !important;
           margin: 0;
           flex: 1;
         }
@@ -631,7 +629,7 @@ $Bg: #e7e7e7;
 
         .up h3 {
           max-width: 60%;
-          font-size: 16px !important;
+          font-size: 18px !important;
         }
       }
 
@@ -642,12 +640,12 @@ $Bg: #e7e7e7;
         .up {
           h3 {
             max-width: 60%;
-            font-size: 18px !important;
+            font-size: 20px !important;
             margin-bottom: 8px;
           }
 
           .mobile {
-            font-size: 13px !important;
+            font-size: 14px !important;
           }
         }
       }
@@ -662,11 +660,11 @@ $Bg: #e7e7e7;
           width: 100%;
 
           h3 {
-            font-size: 18px !important;
+            font-size: 20px !important;
           }
 
           p {
-            font-size: 13px !important;
+            font-size: 14px !important;
             max-width: 100%;
           }
         }
@@ -697,7 +695,7 @@ $Bg: #e7e7e7;
           }
 
           p {
-            font-size: 13px !important;
+            font-size: 14px !important;
           }
         }
 
@@ -712,7 +710,7 @@ $Bg: #e7e7e7;
 }
 
 /* ========== МЕЛКИЕ СМАРТФОНЫ (≤430px) ========== */
-@media (max-width: 430px) {
+@media (max-width: 431px) {
   .benefits {
     padding: 30px 0;
 
@@ -722,15 +720,15 @@ $Bg: #e7e7e7;
 
     .card {
       padding: 16px 14px;
-      border-radius: 16px;
+      border-radius: $radius;
 
-      h3 {
-        font-size: 17px !important;
-      }
+      // h3 {
+      //   font-size: 18px !important;
+      // }
 
-      p {
-        font-size: 12px !important;
-      }
+      // p {
+      //   font-size: 12px !important;
+      // }
 
       &.card1 {
         min-height: 160px;
@@ -742,16 +740,23 @@ $Bg: #e7e7e7;
       }
 
       &.card2 {
-        min-height: 140px;
+        min-height: 150px;
+        h3 {
+          font-size: 24px;
+        }
+        p {
+          font-size: 14px;
+          font-weight: 400;
+        }
       }
 
       &.card3,
       &.card7 {
-        min-height: 70px;
+        min-height: 100px;
         padding: 14px;
 
         p {
-          font-size: 15px !important;
+          font-size: 18px !important;
         }
 
         .icon {
@@ -767,34 +772,57 @@ $Bg: #e7e7e7;
 
       &.card4,
       &.card6 {
-        min-height: 100px;
+        min-height: 200px;
 
         .up h3 {
           max-width: 70%;
+          font-size: 20px;
         }
       }
 
       &.card5 {
-        min-height: 150px;
+        min-height: 300px;
       }
 
       &.card8 {
         .icon img {
-          width: 40px;
-          height: 40px;
+          width: 50px;
+          height: 50px;
         }
       }
+      &.card9 {
+        flex-direction: column;
+        align-items: flex-start;
+        min-height: 180px;
+        padding: 16px;
 
-      &.card9::after {
-        width: 80px;
-        height: 60px;
+        .text {
+          margin-bottom: 0;
+
+          h3 {
+            max-width: 100%;
+            font-size: 18px !important;
+          }
+
+          p {
+            max-width: 70%;
+            font-size: 14px !important;
+            font-weight: 300;
+          }
+        }
+
+        &::after {
+          width: 190px;
+          height: 140px;
+          opacity: 1;
+        }
       }
     }
   }
 }
 
 /* ========== КОМПАКТНЫЕ ТЕЛЕФОНЫ (≤375px) ========== */
-@media (max-width: 375px) {
+@media (max-width: 376px) {
   .benefits {
     padding: 25px 0;
 
@@ -804,14 +832,14 @@ $Bg: #e7e7e7;
 
     .card {
       padding: 14px 12px;
-      border-radius: 14px;
+      border-radius: $radius;
 
       h3 {
-        font-size: 16px !important;
+        font-size: 18px !important;
       }
 
       p {
-        font-size: 11px !important;
+        font-size: 12px !important;
       }
 
       &.card1 {
@@ -824,7 +852,7 @@ $Bg: #e7e7e7;
 
       &.card3 p,
       &.card7 p {
-        font-size: 14px !important;
+        font-size: 18px !important;
       }
     }
   }
@@ -895,11 +923,11 @@ $Bg: #e7e7e7;
     .grid {
       grid-template-columns: repeat(2, 1fr);
       grid-template-areas:
-        "card1 card2"
-        "card3 card4"
-        "card5 card6"
-        "card7 card8"
-        "card9 card9";
+        'card1 card2'
+        'card3 card4'
+        'card5 card6'
+        'card7 card8'
+        'card9 card9';
     }
 
     .card {
