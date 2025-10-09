@@ -74,7 +74,7 @@ export default function Benefits() {
             />
             <div className={styles.up}>
               <h3>Хорошее оборудование</h3>
-              <p>
+              <p className={styles.mobile}>
                 Лазеры с регистрационным <br /> удостоверением, подтверждающим{" "}
                 <br />
                 безопасность и эффективность лазера
