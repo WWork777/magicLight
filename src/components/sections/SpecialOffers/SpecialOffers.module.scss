@@ -9,8 +9,9 @@ $radius: 50px;
     font-family: var(--font-montserrat), sans-serif;
     text-align: center;
     font-size: 45px;
-    font-weight: 650;
+    font-weight: 700;
     margin-bottom: 40px;
+    line-height: 1.4;
   }
 
   .description {
@@ -240,7 +241,7 @@ $radius: 50px;
     padding: 30px 0;
 
     .title {
-      font-size: 32px;
+      font-size: 36px;
       margin-bottom: 24px;
     }
 
@@ -294,14 +295,29 @@ $radius: 50px;
 @media (max-width: 430.98px) {
   .offers {
     .swiper {
-      overflow: hidden;
+      width: 100%;
+      padding: 10px 0;
+      overflow: hidden; // 👈 карточки выходят за пределы
     }
+
+    :global(.swiper-slide) {
+      height: auto;
+      transform: scale(1);
+      opacity: 1;
+      width: 90%; // 👈 карточка меньше ширины, соседняя видна
+      transition: transform 0.4s ease;
+    }
+
+    :global(.swiper-slide-active) {
+      transform: scale(1.02);
+    }
+
     .title {
       font-size: 32px;
     }
 
     :global(.swiper-slide) {
-      width: 60%; // 👈 карточка чуть шире — но всё ещё видно соседнюю
+      width: 70%; // 👈 карточка чуть шире — но всё ещё видно соседнюю
     }
 
     .card {

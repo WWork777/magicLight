@@ -112,7 +112,7 @@ export default function SpecialOffers() {
                 slidesPerView: 2,
               },
               0: {
-                slidesPerView: 1,
+                slidesPerView: 1.3,
               },
             }}
             centeredSlides

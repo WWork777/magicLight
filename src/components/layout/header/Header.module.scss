@@ -7,7 +7,7 @@ $brand: #ba8694;
   transform: translateX(-50%);
   width: 100%;
   max-width: 1280px;
-  padding: 0 15px;
+  padding: 0 12px;
   margin-top: 20px;
   background: #cccccc2e;
   backdrop-filter: blur(25px);
@@ -20,7 +20,6 @@ $brand: #ba8694;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 5px;
   }
 
   .left {
@@ -30,11 +29,11 @@ $brand: #ba8694;
       display: flex;
     }
 
-    @media (max-width: 430) {
+    @media (max-width: 430px) {
       margin-left: -5%;
     }
 
-    @media (max-width: 376) {
+    @media (max-width: 376px) {
       margin-left: -2%;
     }
   }
@@ -85,7 +84,7 @@ $brand: #ba8694;
       margin-left: -5%;
     }
 
-    @media (max-width: 376) {
+    @media (max-width: 376px) {
       margin-left: -10%;
     }
   }
@@ -130,11 +129,11 @@ $brand: #ba8694;
       display: none;
     }
 
-    @media (max-width: 430) {
+    @media (max-width: 430px) {
       margin-right: 5%;
     }
 
-    @media (max-width: 376) {
+    @media (max-width: 376px) {
       margin-right: 2%;
     }
   }
@@ -346,13 +345,13 @@ $brand: #ba8694;
   @media (max-width: 376px) {
     align-items: center;
     border-radius: 32px;
-    padding: 0 15px;
+    padding: 0 20px;
 
     .right {
       flex-direction: column;
       align-items: center;
       gap: 12px;
-      padding: 14px;
+      padding: 12px;
     }
 
     .burger {

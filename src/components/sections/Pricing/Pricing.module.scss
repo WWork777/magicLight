@@ -16,6 +16,7 @@ $montserat: var(--font-montserrat), sans-serif;
     font-size: 45px;
     font-weight: 700;
     margin-bottom: 32px;
+    line-height: 1.4;
   }
 
   /* Tabs */
@@ -262,7 +263,7 @@ $montserat: var(--font-montserrat), sans-serif;
     padding: 70px 0;
 
     .title {
-      font-size: 38px;
+      font-size: 40px;
     }
 
     .card {
@@ -285,7 +286,7 @@ $montserat: var(--font-montserrat), sans-serif;
     padding: 60px 0;
 
     .title {
-      font-size: 32px;
+      font-size: 36px;
       margin-bottom: 28px;
     }
 
@@ -370,7 +371,7 @@ $montserat: var(--font-montserrat), sans-serif;
     scroll-margin-top: 40px;
 
     .title {
-      font-size: 28px;
+      font-size: 32px;
       margin-bottom: 24px;
     }
 
@@ -503,12 +504,12 @@ $montserat: var(--font-montserrat), sans-serif;
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 376px) {
   .pricing {
     padding: 40px 0;
 
     .title {
-      font-size: 24px;
+      font-size: 28px;
       margin-bottom: 20px;
     }
 
