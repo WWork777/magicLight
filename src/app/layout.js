@@ -2,6 +2,7 @@ import { Montserrat, Wix_Madefor_Display } from "next/font/google";
 import Header from "@/components/layout/header/Header";
 import Footer from "@/components/layout/footer/Footer";
 import "./globals.css";
+import YandexMetrika from "@/components/common/YandexMetrika/YandexMEtrika";
 
 export const metadata = {
   icons: {
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
       <body>
         <Header />
         <main>{children}</main>
+        <YandexMetrika />
         <Footer />
       </body>
     </html>
