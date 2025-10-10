@@ -32,8 +32,8 @@ export default function Footer() {
               <Image
                 src='/icons/Footer/logo.svg'
                 alt='Логотип'
-                width={400}
-                height={200}
+                width={300}
+                height={150}
               />
             </Link>
           </div>

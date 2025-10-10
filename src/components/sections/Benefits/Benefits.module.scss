@@ -465,14 +465,52 @@ $Bg: #e7e7e7;
 
     .card {
       padding: 20px;
-      min-height: 180px;
+      min-height: 200px;
 
       &.card1 .left h3 {
-        font-size: 22px;
+        font-size: 24px;
       }
 
-      &.card5 .up h3 {
-        font-size: 24px;
+      .card2 {
+        padding: 20px;
+
+        .textWhite {
+          text-align: right;
+
+          h3 {
+            font-size: 24px !important;
+          }
+
+          p {
+            font-size: 20px !important;
+          }
+        }
+      }
+
+      &.card5 {
+        min-height: 600;
+        .up {
+          h3 {
+            max-width: 70%;
+            font-size: 24px !important;
+            margin-bottom: 8px;
+          }
+
+          .mobile {
+            font-size: 18px !important;
+          }
+        }
+      }
+
+      &.card3,
+      .card7 {
+        p {
+          font-size: 24px !important;
+          margin: 0;
+          flex: 1;
+        }
+
+        padding: 25px;
       }
 
       &.card8 {
@@ -490,7 +528,7 @@ $Bg: #e7e7e7;
         }
 
         &::after {
-          width: 180px;
+          width: 200px;
         }
       }
     }
@@ -527,13 +565,13 @@ $Bg: #e7e7e7;
 
       // Общие улучшения для мобильных
       h3 {
-        font-size: 20px !important;
+        font-size: 22px !important;
         line-height: 1.3 !important;
         margin-bottom: 8px !important;
       }
 
       p {
-        font-size: 16px !important;
+        font-size: 18px !important;
         line-height: 1.4 !important;
       }
 
@@ -567,7 +605,7 @@ $Bg: #e7e7e7;
 
           h3 {
             max-width: 100%;
-            font-size: 18px !important;
+            font-size: 22px !important;
           }
         }
       }
@@ -581,11 +619,11 @@ $Bg: #e7e7e7;
           text-align: right;
 
           h3 {
-            font-size: 20px !important;
+            font-size: 22px !important;
           }
 
           p {
-            font-size: 14px !important;
+            font-size: 18px !important;
           }
         }
       }
@@ -595,57 +633,68 @@ $Bg: #e7e7e7;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        min-height: 80px;
+        min-height: 100px;
         padding: 16px;
 
+        br {
+          display: none !important;
+        }
+
         p {
-          font-size: 20px !important;
+          font-size: 22px !important;
           margin: 0;
           flex: 1;
         }
 
         .icon {
-          width: 45px !important;
-          height: 45px !important;
+          width: 60px !important;
+          height: 60px !important;
           margin-left: 12px;
           flex-shrink: 0;
 
           img {
-            width: 24px !important;
-            height: 24px !important;
+            width: 40x !important;
+            height: 40px !important;
           }
         }
       }
 
       &.card4,
       &.card6 {
-        min-height: 120px;
+        min-height: 160px;
         padding: 16px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
 
+        br {
+          display: none !important;
+        }
         &::after {
           width: 100%;
-          opacity: 0.8;
+          height: auto;
+          opacity: 0.9;
         }
 
         .up h3 {
-          max-width: 60%;
-          font-size: 18px !important;
+          max-width: 100%;
+          font-size: 22px !important;
         }
       }
 
       &.card5 {
-        min-height: 180px;
+        min-height: 280px;
         padding: 16px;
 
         .up {
           h3 {
             max-width: 60%;
-            font-size: 20px !important;
+            font-size: 22px !important;
             margin-bottom: 8px;
           }
 
           .mobile {
-            font-size: 14px !important;
+            font-size: 18px !important;
           }
         }
       }
@@ -660,22 +709,22 @@ $Bg: #e7e7e7;
           width: 100%;
 
           h3 {
-            font-size: 20px !important;
+            font-size: 22px !important;
           }
 
           p {
-            font-size: 14px !important;
+            font-size: 18px !important;
             max-width: 100%;
           }
         }
 
         .icon {
           margin-top: 12px;
-          align-self: flex-start;
+          align-self: flex-end;
 
           img {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
           }
         }
       }
@@ -687,15 +736,15 @@ $Bg: #e7e7e7;
         padding: 16px;
 
         .text {
-          max-width: 60%;
+          max-width: 70%;
           margin-bottom: 0;
 
           h3 {
-            font-size: 20px !important;
+            font-size: 22px !important;
           }
 
           p {
-            font-size: 16px !important;
+            font-size: 18px !important;
           }
         }
 
@@ -802,19 +851,20 @@ $Bg: #e7e7e7;
           h3 {
             max-width: 100%;
             font-size: 18px !important;
+            text-wrap: nowrap;
           }
 
           p {
-            max-width: 70%;
+            max-width: 100%;
             font-size: 14px !important;
             font-weight: 300;
           }
         }
 
         &::after {
-          width: 190px;
-          height: 140px;
-          opacity: 1;
+          width: 200px;
+          height: 150px;
+          opacity: 0.9;
         }
       }
     }
