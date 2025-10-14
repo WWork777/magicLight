@@ -1,0 +1,52 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal {
+  background: #fff;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.title {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.content {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.text {
+  text-align: left;
+  white-space: pre-wrap; // 👈 сохраняет переносы строк
+  word-break: break-word;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #222; // если фон белый
+}
