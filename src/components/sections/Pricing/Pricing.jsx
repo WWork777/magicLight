@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { servicesData } from "@/data/services";
-import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import styles from "./Pricing.module.scss";
+import { useState, useEffect } from 'react';
+import { servicesData } from '@/data/services';
+import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import styles from './Pricing.module.scss';
 
 export default function Pricing() {
-  const [serviceType, setServiceType] = useState("laser"); // laser | lpg
-  const [gender, setGender] = useState("female"); // female | male (только для laser)
-  const [category, setCategory] = useState("Комплексы");
+  const [serviceType, setServiceType] = useState('laser'); // laser | lpg
+  const [gender, setGender] = useState('female'); // female | male (только для laser)
+  const [category, setCategory] = useState('Комплексы');
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -19,62 +19,62 @@ export default function Pricing() {
     };
 
     handleResize(); // инициализация
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Получаем список категорий
   const categories =
-    serviceType === "laser"
+    serviceType === 'laser'
       ? Object.keys(servicesData.laser[gender] || {})
       : [];
 
   // Получаем список услуг
   const services =
-    serviceType === "laser"
+    serviceType === 'laser'
       ? servicesData.laser[gender]?.[category] || []
       : servicesData.lgp.services;
 
   return (
-    <section id="pricing" className={styles.pricing}>
-      <div className="container">
+    <section id='pricing' className={styles.pricing}>
+      <div className='container'>
         <h2 className={styles.title}>Услуги и цены</h2>
 
         {/* Переключатель типа услуги */}
         <div className={styles.tabs}>
           <button
-            className={serviceType === "laser" ? styles.active : ""}
+            className={serviceType === 'laser' ? styles.active : ''}
             onClick={() => {
-              setServiceType("laser");
+              setServiceType('laser');
               setCategory(Object.keys(servicesData.laser.female)[0]);
             }}
           >
-            Лазерная эпиляция
+            Эпиляция
           </button>
           <button
-            className={serviceType === "lgp" ? styles.active : ""}
-            onClick={() => setServiceType("lgp")}
+            className={serviceType === 'lgp' ? styles.active : ''}
+            onClick={() => setServiceType('lgp')}
           >
             LGP массаж
           </button>
         </div>
 
         {/* Пол только для laser */}
-        {serviceType === "laser" && (
+        {serviceType === 'laser' && (
           <div className={styles.genderTabs}>
             <button
-              className={gender === "female" ? styles.active : ""}
+              className={gender === 'female' ? styles.active : ''}
               onClick={() => {
-                setGender("female");
+                setGender('female');
                 setCategory(Object.keys(servicesData.laser.female)[0]);
               }}
             >
               Женская
             </button>
             <button
-              className={gender === "male" ? styles.active : ""}
+              className={gender === 'male' ? styles.active : ''}
               onClick={() => {
-                setGender("male");
+                setGender('male');
                 setCategory(Object.keys(servicesData.laser.male)[0]);
               }}
             >
@@ -84,12 +84,12 @@ export default function Pricing() {
         )}
 
         {/* Категории только для laser */}
-        {serviceType === "laser" && (
+        {serviceType === 'laser' && (
           <div className={styles.categories}>
             {categories.map((cat) => (
               <button
                 key={cat}
-                className={category === cat ? styles.active : ""}
+                className={category === cat ? styles.active : ''}
                 onClick={() => setCategory(cat)}
               >
                 {cat}
@@ -133,22 +133,22 @@ export default function Pricing() {
                 </p>
                 <div className={styles.actions}>
                   <a
-                    href="https://wa.me/79039166251"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href='https://wa.me/79039166251'
+                    target='_blank'
+                    rel='noopener noreferrer'
                     className={styles.btn}
                   >
                     Записаться
                   </a>
                   <a
-                    href="https://wa.me/79000000000"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href='https://wa.me/79000000000'
+                    target='_blank'
+                    rel='noopener noreferrer'
                     className={styles.whatsapp}
                   >
                     <Image
-                      src="/icons/Pricing/whatsapp.svg"
-                      alt="WhatsApp"
+                      src='/icons/Pricing/whatsapp.svg'
+                      alt='WhatsApp'
                       width={20}
                       height={20}
                     />

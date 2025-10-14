@@ -1,26 +1,26 @@
-import Hero from "../components/sections/Hero/Hero";
-import Benefits from "../components/sections/Benefits/Benefits";
-import Pricing from "../components/sections/Pricing/Pricing";
-import Studio from "../components/sections/Studio/Studio";
-import SpecialOffers from "../components/sections/SpecialOffers/SpecialOffers";
-import Reviews from "../components/sections/Reviews/Reviews";
-import Contacts from "../components/sections/Contacts/Contacts";
+import Hero from '../components/sections/Hero/Hero';
+import Benefits from '../components/sections/Benefits/Benefits';
+import Pricing from '../components/sections/Pricing/Pricing';
+import Studio from '../components/sections/Studio/Studio';
+import SpecialOffers from '../components/sections/SpecialOffers/SpecialOffers';
+import Reviews from '../components/sections/Reviews/Reviews';
+import Contacts from '../components/sections/Contacts/Contacts';
 
 export async function generateMetadata() {
   return {
     title:
-      "Услуги эпиляции по доступной цене в Кемерово - салон красоты «Волшебный свет»",
+      'Услуги эпиляции по доступной цене в Кемерово - салон красоты «Волшебный свет»',
     description:
-      "Широкий выбор самых эффективных методов удаления волос по заманчивым ценам. Комфортная эпиляция от опытных мастеров с качественным оборудованием. Акции каждый месяц!",
+      'Широкий выбор самых эффективных методов удаления волос по заманчивым ценам. Комфортная эпиляция от опытных мастеров с качественным оборудованием. Акции каждый месяц!',
     alternates: {
-      canonical: "https://epilyaciya-kemerovo.ru",
+      canonical: 'https://epilyaciya-kemerovo.ru',
     },
     openGraph: {
       title: `Услуги эпиляции по доступной цене в Кемерово - салон красоты «Волшебный свет»`,
       description: `Широкий выбор самых эффективных методов удаления волос по заманчивым ценам. Комфортная эпиляция от опытных мастеров с качественным оборудованием. Акции каждый месяц!`,
-      url: "https://epilyaciya-kemerovo.ru",
+      url: 'https://epilyaciya-kemerovo.ru',
       siteName:
-        "Услуги эпиляции по доступной цене в Кемерово - салон красоты «Волшебный свет»",
+        'Услуги эпиляции по доступной цене в Кемерово - салон красоты «Волшебный свет»',
       images: [
         {
           url: `/images/Hero.webp`,
@@ -29,15 +29,15 @@ export async function generateMetadata() {
           alt: `Услуги эпиляции по доступной цене в Кемерово`,
         },
       ],
-      locale: "ru_RU",
-      type: "website",
+      locale: 'ru_RU',
+      type: 'website',
     },
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title:
-        "Услуги эпиляции по доступной цене в Кемерово - салон красоты «Волшебный свет»",
+        'Услуги эпиляции по доступной цене в Кемерово - салон красоты «Волшебный свет»',
       description:
-        "Широкий выбор самых эффективных методов удаления волос по заманчивым ценам. Комфортная эпиляция от опытных мастеров с качественным оборудованием. Акции каждый месяц!",
+        'Широкий выбор самых эффективных методов удаления волос по заманчивым ценам. Комфортная эпиляция от опытных мастеров с качественным оборудованием. Акции каждый месяц!',
       images: [`/images/Hero.webp`],
     },
     robots: {
@@ -46,9 +46,9 @@ export async function generateMetadata() {
       googleBot: {
         index: true,
         follow: true,
-        "max-video-preview": -1,
-        "max-image-preview": "large",
-        "max-snippet": -1,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
       },
     },
   };
@@ -60,8 +60,8 @@ export default function HomePage() {
       <Hero />
       <Benefits />
       <Pricing />
-      <Studio />
       <SpecialOffers />
+      <Studio />
       <Reviews />
       <Contacts />
     </>

@@ -94,10 +94,11 @@ export default function Benefits() {
           </div>
 
           {/* Card 7 */}
-          <div className={`${styles.card} ${styles.card7} ${styles.colored}`}>
-            <p>
-              Доступные <br /> цены
-            </p>
+          <a
+            href='#offers'
+            className={`${styles.card} ${styles.card7} ${styles.colored}`}
+          >
+            <p>Специальные предложения</p>
             <div className={styles.icon}>
               <Image
                 src='/icons/Benefits/ruble.svg'
@@ -106,7 +107,7 @@ export default function Benefits() {
                 height={24}
               />
             </div>
-          </div>
+          </a>
 
           {/* Card 8 */}
           <div className={`${styles.card} ${styles.card8}`}>
