@@ -1,30 +1,29 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import styles from './CookieBanner.module.scss';
+import { useEffect, useState } from "react";
+import styles from "./CookieBanner.module.scss";
 
-export default function CookieBanner({ onConsentGiven }) {
+export default function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem('cookieConsent');
+    const consent = localStorage.getItem("cookieConsent");
     if (!consent) {
       setVisible(true);
-    } else if (consent === 'accepted' && typeof onConsentGiven === 'function') {
-      onConsentGiven(); // запуск метрики, если ранее принято
     }
-  }, [onConsentGiven]);
+  }, []);
 
   const handleAccept = () => {
-    localStorage.setItem('cookieConsent', 'accepted');
+    localStorage.setItem("cookieConsent", "accepted");
     setVisible(false);
-    if (typeof onConsentGiven === 'function') {
-      onConsentGiven(); // запуск метрики
-    }
+    // Отправляем кастомное событие для YandexMetrika
+    window.dispatchEvent(new Event("cookieConsentAccepted"));
+    // Триггерим событие storage для других вкладок
+    window.dispatchEvent(new Event("storage"));
   };
 
   const handleDecline = () => {
-    localStorage.setItem('cookieConsent', 'declined');
+    localStorage.setItem("cookieConsent", "declined");
     setVisible(false);
   };
 
@@ -34,8 +33,8 @@ export default function CookieBanner({ onConsentGiven }) {
     <div className={styles.banner}>
       <p>
         Мы используем cookie-файлы для улучшения работы сайта. Продолжая
-        использовать сайт, вы соглашаетесь с их использованием.{' '}
-        <a href='/docs/privacy.txt' target='_blank' rel='noopener noreferrer'>
+        использовать сайт, вы соглашаетесь с их использованием.{" "}
+        <a href="/docs/privacy.txt" target="_blank" rel="noopener noreferrer">
           Подробнее
         </a>
       </p>
