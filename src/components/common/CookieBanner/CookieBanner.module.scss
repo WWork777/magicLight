@@ -1,0 +1,66 @@
+.banner {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  padding: 1rem 1.25rem;
+  max-width: 600px;
+  width: 90%;
+  font-size: 14px;
+  z-index: 9999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.banner p {
+  font-family: (--font-montserrat), sans-serif;
+  margin: 0;
+  flex: 1 1 60%;
+  line-height: 1.4;
+}
+
+.banner a {
+  font-family: (--font-montserrat), sans-serif;
+  color: #ba8694;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.banner button {
+  font-family: (--font-montserrat), sans-serif;
+  background-color: #ba8694;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.banner button:hover {
+  background-color: #9d6f7c;
+}
+
+.decline {
+  background-color: #ccc;
+  color: #333;
+}
+
+.decline:hover {
+  background-color: #aaa;
+}
