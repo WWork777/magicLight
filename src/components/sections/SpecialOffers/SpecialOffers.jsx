@@ -25,7 +25,7 @@ const offers = [
   {
     id: 3,
     title: 'Абонементы',
-    image: '/images/SpecialOffers/abonement1.webp',
+    image: '/images/SpecialOffers/abonement2.webp',
     description:
       'Приобретайте абонементы на курс процедур и экономьте до 30% от полной стоимости.',
   },
@@ -52,7 +52,7 @@ const offers = [
   {
     id: 7,
     title: 'Абонементы',
-    image: '/images/SpecialOffers/abonement1.webp',
+    image: '/images/SpecialOffers/abonement2.webp',
     description:
       'Приобретайте абонементы на курс процедур и экономьте до 30% от полной стоимости.',
   },
