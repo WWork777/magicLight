@@ -45,6 +45,7 @@ $brand-hover: #9d6f7c;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  padding-top: 100px; // 👈 компенсируем фиксированный хедер
   overflow: hidden;
   color: white;
   text-align: center;
@@ -90,14 +91,14 @@ $brand-hover: #9d6f7c;
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  padding: 0 16px;
+  padding: 0px 16px;
   text-align: center;
 }
 
 /* === Тексты === */
 .title {
   font-family: var(--font-montserrat), sans-serif;
-  font-size: clamp(40px, 5vw, 80px);
+  font-size: clamp(40px, 5vw, 65px);
   font-weight: 700;
   line-height: 1.2;
   max-width: 900px;
@@ -107,7 +108,7 @@ $brand-hover: #9d6f7c;
 
 .subtitle {
   font-family: var(--font-montserrat), sans-serif;
-  font-size: clamp(18px, 2vw, 30px);
+  font-size: clamp(18px, 2vw, 25px);
   font-weight: 500;
   max-width: 800px;
   color: rgba(255, 255, 255, 0.9);
@@ -116,7 +117,7 @@ $brand-hover: #9d6f7c;
   animation-delay: 0.5s;
 
   .percent {
-    font-size: clamp(24px, 3vw, 42px);
+    font-size: clamp(24px, 3vw, 36px);
     font-weight: 700;
     color: #fff;
   }
@@ -130,7 +131,7 @@ $brand-hover: #9d6f7c;
   border-radius: 999px;
   font-family: var(--font-montserrat), sans-serif;
   font-weight: 600;
-  font-size: 22px;
+  font-size: 18px;
   text-decoration: none;
   transition: background 0.3s ease, transform 0.2s ease;
   animation: fadeInUp 1s ease forwards;
@@ -220,26 +221,35 @@ $brand-hover: #9d6f7c;
 }
 
 /* === Адаптив === */
-@media (max-width: 834px) {
+/* === Адаптив под реальные устройства === */
+
+/* 💻 Ноутбуки и меньше */
+@media (max-width: 1440.98px) {
+  .hero {
+    padding-top: 70px; // 👈 отступ под фиксированный хедер
+    min-height: 100vh;
+  }
+
   .title {
-    font-size: 38px;
+    font-size: clamp(36px, 4vw, 64px);
+    max-width: 750px;
   }
 
   .subtitle {
-    font-size: 18px;
+    font-size: clamp(16px, 2vw, 26px);
 
     .percent {
-      font-size: 28px;
+      font-size: clamp(22px, 3vw, 36px);
     }
   }
 
   .mainButton {
-    padding: 16px 40px;
-    font-size: 18px;
+    padding: 16px 50px;
+    font-size: 20px;
   }
 
   .contacts {
-    gap: 60px;
+    gap: 80px;
   }
 
   .circleButton {
@@ -248,25 +258,67 @@ $brand-hover: #9d6f7c;
   }
 
   .privacyText {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 
-@media (max-width: 430px) {
+/* 📱 Планшеты */
+@media (max-width: 834.98px) {
+  .hero {
+    min-height: 100vh;
+  }
+
   .title {
-    font-size: 32px;
+    font-size: clamp(28px, 5vw, 48px);
   }
 
   .subtitle {
-    font-size: 18px;
+    font-size: clamp(16px, 3vw, 22px);
 
     .percent {
-      font-size: 22px;
+      font-size: clamp(20px, 3.5vw, 28px);
     }
   }
 
   .mainButton {
-    padding: 14px 30px;
+    padding: 14px 36px;
+    font-size: 18px;
+  }
+
+  .contacts {
+    gap: 50px;
+  }
+
+  .circleButton {
+    width: 55px;
+    height: 55px;
+  }
+
+  .privacyText {
+    font-size: 12px;
+  }
+}
+
+/* 📱 Телефоны */
+@media (max-width: 430.98px) {
+  .hero {
+    min-height: 100vh;
+  }
+
+  .title {
+    font-size: clamp(24px, 7vw, 36px);
+  }
+
+  .subtitle {
+    font-size: clamp(14px, 4vw, 18px);
+
+    .percent {
+      font-size: clamp(18px, 5vw, 24px);
+    }
+  }
+
+  .mainButton {
+    padding: 12px 28px;
     font-size: 16px;
   }
 
@@ -275,8 +327,8 @@ $brand-hover: #9d6f7c;
   }
 
   .circleButton {
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
 
     img {
       width: 22px;
@@ -286,5 +338,43 @@ $brand-hover: #9d6f7c;
 
   .privacyText {
     font-size: 11px;
+  }
+}
+
+/* 📱 Компактные телефоны */
+@media (max-width: 375.98px) {
+  .hero {
+    padding-top: 60px;
+    min-height: 100vh;
+  }
+
+  .title {
+    font-size: clamp(20px, 6vw, 28px);
+  }
+
+  .subtitle {
+    font-size: 14px;
+
+    .percent {
+      font-size: 20px;
+    }
+  }
+
+  .mainButton {
+    padding: 10px 24px;
+    font-size: 15px;
+  }
+
+  .contacts {
+    gap: 30px;
+  }
+
+  .circleButton {
+    width: 45px;
+    height: 45px;
+  }
+
+  .privacyText {
+    font-size: 10px;
   }
 }
