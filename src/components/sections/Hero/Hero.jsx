@@ -51,7 +51,9 @@ export default function Hero() {
 
       <div className='container'>
         <div className={styles.content}>
-          <h1 className={styles.title}>Удаление волос без боли в Кемерово</h1>
+          <h1 className={styles.title}>
+            Услуги лазерной эпиляции по доступной цене в Кемерово
+          </h1>
           <p className={styles.subtitle}>
             система скидок по карте каждому клиенту — <br /> 1, 4, 7, 10
             посещения — <span className={styles.percent}>25%</span>
