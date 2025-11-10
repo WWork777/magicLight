@@ -1,0 +1,278 @@
+$brand: #ba8694;
+$brand-hover: #9d6f7c;
+$text-dark: #1f1d22;
+$font-montserrat: var(--font-montserrat), sans-serif;
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toastIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(12px, 4vw, 32px);
+  background: rgba(18, 22, 27, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 1200;
+  animation: fadeIn 0.35s ease forwards;
+}
+
+.modal {
+  position: relative;
+  width: min(680px, 100%);
+  border-radius: clamp(18px, 4.5vw, 28px);
+  padding: clamp(30px, 6.5vw, 44px);
+  background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.96) 0%,
+      rgba(255, 247, 247, 0.94) 70%,
+      rgba(248, 234, 238, 0.92) 100%
+    ),
+    url('/images/SpecialOffers/discount.webp') center/cover;
+  box-shadow: 0 24px 60px rgba(20, 22, 30, 0.28);
+  color: $text-dark;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 3vw, 20px);
+  animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      140deg,
+      rgba(255, 255, 255, 0.92) 20%,
+      rgba(255, 255, 255, 0.88) 60%,
+      rgba(255, 220, 230, 0.65) 100%
+    );
+    z-index: -1;
+  }
+}
+
+.close {
+  position: absolute;
+  top: clamp(12px, 3vw, 18px);
+  right: clamp(12px, 3vw, 18px);
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  width: clamp(32px, 8vw, 40px);
+  height: clamp(32px, 8vw, 40px);
+  border-radius: 50%;
+  font-size: clamp(18px, 5vw, 22px);
+  color: $text-dark;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.95);
+    color: $brand-hover;
+  }
+}
+
+.heading {
+  display: inline-flex;
+  align-self: center;
+  align-items: center;
+  gap: clamp(8px, 2vw, 14px);
+  padding: clamp(14px, 3.5vw, 18px) clamp(28px, 6vw, 36px);
+  border-radius: clamp(22px, 5vw, 28px);
+  background: $brand;
+  color: #fffdf8 !important;
+  font-family: $font-montserrat;
+  font-size: clamp(22px, 5.5vw, 30px);
+  font-weight: 500;
+  line-height: 1.28;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  box-shadow: 0 18px 36px rgba(186, 134, 148, 0.32);
+  text-align: center;
+}
+
+.headingAccent {
+  color: inherit;
+}
+
+.description {
+  font-family: $font-montserrat;
+  font-size: clamp(15px, 3vw, 18px);
+  color: rgba($text-dark, 0.78);
+  line-height: 1.45;
+  text-align: center;
+  margin: clamp(6px, 2.5vw, 12px) auto clamp(10px, 3vw, 18px);
+  max-width: 520px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 4vw, 20px);
+  margin-top: clamp(6px, 2.5vw, 14px);
+}
+
+.label {
+  width: 100%;
+
+  input {
+    width: 100%;
+    padding: clamp(16px, 4.5vw, 20px) clamp(20px, 5vw, 26px);
+    border-radius: clamp(14px, 4.5vw, 18px);
+    border: 1.5px solid rgba(186, 134, 148, 0.2);
+    background: rgba(255, 255, 255, 0.9);
+    color: $text-dark;
+    font-family: $font-montserrat;
+    font-size: clamp(15px, 4vw, 18px);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease,
+      background 0.2s ease;
+
+    &::placeholder {
+      color: rgba($text-dark, 0.55);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: rgba($brand, 0.8);
+      box-shadow: 0 0 0 4px rgba($brand, 0.18);
+      background: rgba(255, 255, 255, 1);
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.submit {
+  border: none;
+  border-radius: clamp(14px, 4.5vw, 20px);
+  background: $brand;
+  color: #fff;
+  font-family: $font-montserrat;
+  font-weight: 600;
+  font-size: clamp(17px, 4.5vw, 20px);
+  padding: clamp(18px, 4.8vw, 22px);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover:not(:disabled),
+  &:focus-visible:not(:disabled) {
+    background: $brand-hover;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba($brand, 0.24);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    background: rgba($brand, 0.6);
+    cursor: progress;
+  }
+}
+
+.error {
+  color: #d43c3c;
+  font-size: clamp(12px, 3vw, 14px);
+  text-align: center;
+  line-height: 1.4;
+}
+
+.privacy {
+  font-family: $font-montserrat;
+  font-size: clamp(11px, 2.8vw, 13px);
+  line-height: 1.45;
+  color: rgba($text-dark, 0.75);
+  text-align: center;
+
+  a {
+    color: $brand-hover;
+    text-decoration: underline;
+    text-decoration-thickness: 0.12em;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: $brand;
+    }
+  }
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: clamp(24px, 6vw, 40px);
+  transform: translateX(-50%);
+  min-width: min(320px, 90vw);
+  padding: clamp(12px, 4vw, 16px) clamp(22px, 6vw, 28px);
+  border-radius: 999px;
+  background: rgba(25, 28, 34, 0.92);
+  color: #fff;
+  font-family: $font-montserrat;
+  font-weight: 500;
+  font-size: clamp(14px, 3.5vw, 16px);
+  box-shadow: 0 18px 40px rgba(18, 22, 27, 0.26);
+  z-index: 1201;
+  animation: toastIn 0.3s ease forwards;
+}
+
+@supports not (backdrop-filter: blur(4px)) {
+  .backdrop {
+    background: rgba(18, 22, 27, 0.75);
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    border-radius: 20px;
+    padding: clamp(24px, 8vw, 34px);
+  }
+
+  .badge {
+    padding: 6px 12px;
+  }
+
+  .toast {
+    border-radius: clamp(18px, 8vw, 24px);
+  }
+}

@@ -5,6 +5,7 @@ import Studio from '../components/sections/Studio/Studio';
 import SpecialOffers from '../components/sections/SpecialOffers/SpecialOffers';
 import Reviews from '../components/sections/Reviews/Reviews';
 import Contacts from '../components/sections/Contacts/Contacts';
+import DiscountPromoModal from '@/components/common/DiscountPromoModal/DiscountPromoModal';
 
 export async function generateMetadata() {
   return {
@@ -64,6 +65,7 @@ export default function HomePage() {
       <Studio />
       <Reviews />
       <Contacts />
+      <DiscountPromoModal />
     </>
   );
 }
