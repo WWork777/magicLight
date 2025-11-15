@@ -55,7 +55,7 @@ export default function RootLayout({ children }) {
         <main>{children}</main>
 
         {/* Cookie баннер - теперь сам управляет состоянием */}
-        <CookieBanner />
+        {/* <CookieBanner /> */}
 
         {/* YandexMetrika теперь сам проверяет согласие */}
         <YandexMetrika />
