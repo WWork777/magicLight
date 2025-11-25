@@ -7,6 +7,7 @@ import Image from 'next/image';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
   const closeMenu = () => setIsMenuOpen(false);
@@ -15,8 +16,28 @@ export default function Header() {
     document.body.style.overflow = isMenuOpen ? 'hidden' : 'auto';
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const hero = document.getElementById('hero');
+      if (hero) {
+        const heroBottom = hero.offsetTop + hero.offsetHeight;
+        const scrollPosition = window.scrollY;
+        // Затемняем header, когда прокрутили мимо hero секции
+        setIsScrolledPastHero(scrollPosition + 150 > heroBottom);
+      }
+    };
+
+    handleScroll(); // проверяем при монтировании
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className={styles.header}>
+    <header
+      className={`${styles.header} ${
+        isScrolledPastHero ? styles.darkened : ''
+      }`}
+    >
       <div className={styles.inner}>
         {/* Лого */}
         <div className={styles.left}>

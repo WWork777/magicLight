@@ -15,6 +15,11 @@ $brand: #ba8694;
   z-index: 1000;
   transition: all 0.3s ease;
 
+  &.darkened {
+    background: rgba(100, 100, 100, 0.5);
+    backdrop-filter: blur(25px);
+  }
+
   .inner {
     display: flex;
     align-items: center;

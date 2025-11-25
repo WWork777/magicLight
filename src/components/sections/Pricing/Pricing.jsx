@@ -11,6 +11,7 @@ export default function Pricing() {
   const [serviceType, setServiceType] = useState('laser'); // laser | lpg
   const [gender, setGender] = useState('female'); // female | male (только для laser)
   const [category, setCategory] = useState('Комплексы');
+  const [lgpCategory, setLgpCategory] = useState('Разовые посещения');
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -27,13 +28,13 @@ export default function Pricing() {
   const categories =
     serviceType === 'laser'
       ? Object.keys(servicesData.laser[gender] || {})
-      : [];
+      : Object.keys(servicesData.lgp || {});
 
   // Получаем список услуг
   const services =
     serviceType === 'laser'
       ? servicesData.laser[gender]?.[category] || []
-      : servicesData.lgp.services;
+      : servicesData.lgp[lgpCategory] || [];
 
   return (
     <section id='pricing' className={styles.pricing}>
@@ -53,7 +54,10 @@ export default function Pricing() {
           </button>
           <button
             className={serviceType === 'lgp' ? styles.active : ''}
-            onClick={() => setServiceType('lgp')}
+            onClick={() => {
+              setServiceType('lgp');
+              setLgpCategory(Object.keys(servicesData.lgp)[0]);
+            }}
           >
             LGP массаж
           </button>
@@ -83,14 +87,28 @@ export default function Pricing() {
           </div>
         )}
 
-        {/* Категории только для laser */}
-        {serviceType === 'laser' && (
+        {/* Категории для laser и lgp */}
+        {(serviceType === 'laser' || serviceType === 'lgp') && (
           <div className={styles.categories}>
             {categories.map((cat) => (
               <button
                 key={cat}
-                className={category === cat ? styles.active : ''}
-                onClick={() => setCategory(cat)}
+                className={
+                  serviceType === 'laser'
+                    ? category === cat
+                      ? styles.active
+                      : ''
+                    : lgpCategory === cat
+                    ? styles.active
+                    : ''
+                }
+                onClick={() => {
+                  if (serviceType === 'laser') {
+                    setCategory(cat);
+                  } else {
+                    setLgpCategory(cat);
+                  }
+                }}
               >
                 {cat}
               </button>

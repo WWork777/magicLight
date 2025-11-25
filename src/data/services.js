@@ -327,28 +327,48 @@ export const servicesData = {
   },
 
   lgp: {
-    services: [
+    'Разовые посещения': [
       {
         id: 'lgp1',
-        title: 'Пробный сеанс',
-        price: 800,
+        title: 'Первое пробное посещение',
+        price: 1000,
         image: '/images/Pricing/device.webp',
       },
       {
         id: 'lgp2',
-        title: '1 сеанс 25мин/45мин',
-        price: '1000/1100',
+        title: 'Разовое посещение 25мин',
+        price: 1200,
         image: '/images/Pricing/lgp1.webp',
       },
       {
         id: 'lgp3',
-        title: '10 сеансов 25мин/45мин',
-        price: '8000/10000',
+        title: 'Разовое посещение 45мин',
+        price: 1400,
         image: '/images/Pricing/lgp2.webp',
       },
       {
         id: 'lgp4',
-        title: 'Костюм приобретается единожды',
+        title: 'Костюм (можно приобрести самостоятельно)',
+        price: 800,
+        image: '/images/Pricing/lgp3.webp',
+      },
+    ],
+    Абонементы: [
+      {
+        id: 'lgp5',
+        title: '10 сеансов по 25мин',
+        price: 10000,
+        image: '/images/Pricing/lgp2.webp',
+      },
+      {
+        id: 'lgp6',
+        title: '10 сеансов 45мин',
+        price: 12000,
+        image: '/images/Pricing/lgp1.webp',
+      },
+      {
+        id: 'lgp7',
+        title: 'Костюм (можно приобрести самостоятельно)',
         price: 800,
         image: '/images/Pricing/lgp3.webp',
       },
