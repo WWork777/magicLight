@@ -5,29 +5,41 @@ import styles from './CookieBanner.module.scss';
 
 export default function CookieBanner() {
   const [visible, setVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem('cookieConsent');
-    if (!consent) {
-      setVisible(true);
+    // Устанавливаем mounted только на клиенте
+    setMounted(true);
+
+    // Проверяем согласие только на клиенте
+    if (typeof window !== 'undefined') {
+      const consent = localStorage.getItem('cookieConsent');
+      if (!consent) {
+        setVisible(true);
+      }
     }
   }, []);
 
   const handleAccept = () => {
-    localStorage.setItem('cookieConsent', 'accepted');
-    setVisible(false);
-    // Отправляем кастомное событие для YandexMetrika
-    window.dispatchEvent(new Event('cookieConsentAccepted'));
-    // Триггерим событие storage для других вкладок
-    window.dispatchEvent(new Event('storage'));
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('cookieConsent', 'accepted');
+      setVisible(false);
+      // Отправляем кастомное событие для YandexMetrika
+      window.dispatchEvent(new Event('cookieConsentAccepted'));
+      // Триггерим событие storage для других вкладок
+      window.dispatchEvent(new Event('storage'));
+    }
   };
 
   const handleDecline = () => {
-    localStorage.setItem('cookieConsent', 'declined');
-    setVisible(false);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('cookieConsent', 'declined');
+      setVisible(false);
+    }
   };
 
-  if (!visible) return null;
+  // Не рендерим на сервере или если не видим
+  if (!mounted || !visible) return null;
 
   return (
     <div className={styles.banner}>
