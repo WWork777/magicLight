@@ -1,37 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import styles from './Hero.module.scss';
 import Image from 'next/image';
-import Modal from '@/components/ui/Modal/Modal';
 
 export default function Hero() {
-  const [modal, setModal] = useState(null);
-  const [modalContent, setModalContent] = useState({ title: '', content: '' });
-
-  const openModal = async (type) => {
-    let title = '';
-    let file = '';
-
-    if (type === 'personal') {
-      title = 'Обработка персональных данных';
-      file = '/docs/personal-data.txt';
-    } else if (type === 'privacy') {
-      title = 'Политика конфиденциальности';
-      file = '/docs/privacy.txt';
-    }
-    console.log('Открываем модалку типа:', type); // ✅ добавь это
-    const res = await fetch(file);
-    const text = await res.text();
-
-    console.log('Загруженный текст:', text); // 👈 должен выводиться в консоли
-
-    setModalContent({ title, content: text });
-    setModal(type);
-  };
-
-  const closeModal = () => setModal(null);
-
   return (
     <section id='hero' className={styles.hero}>
       <div className={styles.videoBackground}>
@@ -101,31 +73,27 @@ export default function Hero() {
 
           <p className={styles.privacyText}>
             Нажимая кнопку, вы даёте согласие на{' '}
-            <button
+            <a
+              href='/personal-data'
+              target='_blank'
+              rel='noopener noreferrer'
               className={styles.linkBtn}
-              onClick={() => openModal('personal')}
             >
               обработку персональных данных
-            </button>{' '}
+            </a>{' '}
             и соглашаетесь с{' '}
-            <button
+            <a
+              href='/privacy'
+              target='_blank'
+              rel='noopener noreferrer'
               className={styles.linkBtn}
-              onClick={() => openModal('privacy')}
             >
               политикой конфиденциальности
-            </button>
+            </a>
             .
           </p>
         </div>
       </div>
-
-      {/* === Модалка === */}
-      <Modal
-        isOpen={!!modal}
-        onClose={closeModal}
-        title={modalContent.title}
-        content={modalContent.content}
-      />
     </section>
   );
 }

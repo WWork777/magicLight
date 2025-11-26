@@ -23,6 +23,14 @@ export default function Footer() {
               <li>
                 <a href='#contacts'>Контакты</a>
               </li>
+              <li>
+                <a href='/privacy'>Политика конфиденциальности</a>
+              </li>
+              <li>
+                <a href='/personal-data'>
+                  Политика обработки <br></br>персональных данных
+                </a>
+              </li>
             </ul>
           </div>
 

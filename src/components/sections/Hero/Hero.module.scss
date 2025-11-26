@@ -206,6 +206,11 @@ $brand-hover: #9d6f7c;
   cursor: pointer;
   font: inherit;
   padding: 0;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $brand-hover;
+  }
 }
 
 /* Анимация */

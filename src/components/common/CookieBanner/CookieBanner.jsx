@@ -44,11 +44,18 @@ export default function CookieBanner() {
   return (
     <div className={styles.banner}>
       <p>
-        Мы используем cookie-файлы для улучшения работы сайта. Продолжая
-        использовать сайт, вы соглашаетесь с их использованием.{' '}
+        Мы используем cookie-файлы и обрабатываем персональные данные для
+        улучшения работы сайта и предоставления услуг. Продолжая использовать
+        сайт, вы даете согласие на обработку персональных данных в соответствии
+        с{' '}
         <a href='/privacy' target='_blank' rel='noopener noreferrer'>
-          Подробнее
+          Политикой конфиденциальности
+        </a>{' '}
+        и{' '}
+        <a href='/personal-data' target='_blank' rel='noopener noreferrer'>
+          Согласием на обработку персональных данных
         </a>
+        .
       </p>
       <div className={styles.buttons}>
         <button onClick={handleAccept}>Принять</button>
