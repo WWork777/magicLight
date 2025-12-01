@@ -45,6 +45,7 @@ $font-montserrat: var(--font-montserrat), sans-serif;
   backdrop-filter: blur(4px);
   z-index: 1200;
   animation: fadeIn 0.35s ease forwards;
+  overflow: hidden;
 }
 
 .modal {
@@ -65,7 +66,7 @@ $font-montserrat: var(--font-montserrat), sans-serif;
   flex-direction: column;
   gap: clamp(12px, 3vw, 20px);
   animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  overflow: hidden;
+  overflow: visible;
 
   &::after {
     content: '';
@@ -136,6 +137,260 @@ $font-montserrat: var(--font-montserrat), sans-serif;
   text-align: center;
   margin: clamp(6px, 2.5vw, 12px) auto clamp(10px, 3vw, 18px);
   max-width: 520px;
+}
+
+// Летающие пони вокруг модального окна - 8 штук вокруг формы
+.poni1,
+.poni2,
+.poni3,
+.poni5,
+.poni6,
+.poni8,
+.poni9,
+.poni10 {
+  position: absolute;
+  z-index: 1201;
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeInPoni 0.6s ease forwards, flyAround 12s ease-in-out infinite;
+}
+
+// Сверху - 2 пони (не закрывают форму)
+.poni1 {
+  top: 5%;
+  left: 20%;
+  animation-delay: 0.1s, 0s;
+}
+
+.poni2 {
+  top: 5%;
+  right: 20%;
+  animation-delay: 0.2s, 1.2s;
+}
+
+// Слева - 3 пони (вертикально распределены)
+.poni3 {
+  top: 20%;
+  left: 2%;
+  animation-delay: 0.3s, 2.4s;
+}
+
+.poni5 {
+  bottom: 20%;
+  left: 2%;
+  animation-delay: 0.5s, 4.8s;
+}
+
+// Справа - 3 пони (вертикально распределены)
+.poni6 {
+  top: 20%;
+  right: 2%;
+  animation-delay: 0.6s, 6s;
+}
+
+.poni8 {
+  bottom: 20%;
+  right: 2%;
+  animation-delay: 0.8s, 8.4s;
+}
+
+// Снизу - 2 пони (не закрывают форму)
+.poni9 {
+  bottom: 5%;
+  left: 20%;
+  animation-delay: 0.9s, 9.6s;
+}
+
+.poni10 {
+  bottom: 5%;
+  right: 20%;
+  animation-delay: 1s, 10.8s;
+}
+
+.poni {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(186, 134, 148, 0.3));
+
+  @media (max-width: 768px) {
+    filter: drop-shadow(0 4px 8px rgba(186, 134, 148, 0.25));
+  }
+}
+
+@keyframes fadeInPoni {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes flyAround {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  20% {
+    transform: translate(20px, -25px) rotate(8deg) scale(1.08);
+  }
+  40% {
+    transform: translate(-15px, -20px) rotate(-5deg) scale(0.92);
+  }
+  60% {
+    transform: translate(-20px, 15px) rotate(6deg) scale(1.05);
+  }
+  80% {
+    transform: translate(10px, 20px) rotate(-4deg) scale(0.98);
+  }
+}
+
+@media (max-width: 1024px) {
+  // На планшетах уменьшаем количество пони и размещаем за формой
+  .poni1,
+  .poni2,
+  .poni3,
+  .poni5,
+  .poni6,
+  .poni8,
+  .poni9,
+  .poni10 {
+    z-index: 1199; // За формой (модальное окно z-index: 1200)
+  }
+
+  // Оставляем только 4 пони по углам
+  .poni1 {
+    top: 2%;
+    left: 2%;
+  }
+
+  .poni2 {
+    top: 2%;
+    right: 2%;
+  }
+
+  // Скрываем боковые пони
+  .poni3,
+  .poni5 {
+    display: none;
+  }
+
+  .poni6,
+  .poni8 {
+    display: none;
+  }
+
+  // Снизу
+  .poni9 {
+    bottom: 2%;
+    left: 2%;
+  }
+
+  .poni10 {
+    bottom: 2%;
+    right: 2%;
+  }
+}
+
+@media (max-width: 768px) {
+  // На планшетах оставляем 4 пони по углам, за формой
+  .poni1,
+  .poni2,
+  .poni3,
+  .poni5,
+  .poni6,
+  .poni8,
+  .poni9,
+  .poni10 {
+    z-index: 1199; // За формой
+  }
+
+  // Сверху
+  .poni1 {
+    top: 1%;
+    left: 1%;
+  }
+
+  .poni2 {
+    top: 1%;
+    right: 1%;
+  }
+
+  // Скрываем боковые
+  .poni3,
+  .poni5,
+  .poni6,
+  .poni8 {
+    display: none;
+  }
+
+  // Снизу
+  .poni9 {
+    bottom: 1%;
+    left: 1%;
+  }
+
+  .poni10 {
+    bottom: 1%;
+    right: 1%;
+  }
+}
+
+@media (max-width: 480px) {
+  // На телефонах оставляем только 4 пони сверху и снизу, увеличиваем размер
+  .poni1,
+  .poni2,
+  .poni3,
+  .poni5,
+  .poni6,
+  .poni8,
+  .poni9,
+  .poni10 {
+    z-index: 1201; // Перед формой для видимости
+  }
+
+  // Сверху - 2 пони
+  .poni1 {
+    top: 2%;
+    left: 8%;
+  }
+
+  .poni2 {
+    top: 2%;
+    right: 8%;
+  }
+
+  // Слева - скрываем
+  .poni3,
+  .poni5 {
+    display: none;
+  }
+
+  // Справа - скрываем
+  .poni6,
+  .poni8 {
+    display: none;
+  }
+
+  // Снизу - 2 пони
+  .poni9 {
+    bottom: 2%;
+    left: 8%;
+  }
+
+  .poni10 {
+    bottom: 2%;
+    right: 8%;
+  }
+
+  // Увеличиваем размер пони на мобильных
+  .poni {
+    width: 90px !important;
+    height: 90px !important;
+  }
 }
 
 .form {

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import styles from './Header.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -8,6 +9,7 @@ import Image from 'next/image';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
   const closeMenu = () => setIsMenuOpen(false);
@@ -17,6 +19,15 @@ export default function Header() {
   }, [isMenuOpen]);
 
   useEffect(() => {
+    // Проверяем, находимся ли мы на странице блога
+    const isBlogPage = pathname?.startsWith('/blog') || false;
+
+    // Если на странице блога, сразу затемняем хедер
+    if (isBlogPage) {
+      setIsScrolledPastHero(true);
+      return;
+    }
+
     const handleScroll = () => {
       const hero = document.getElementById('hero');
       if (hero) {
@@ -24,13 +35,15 @@ export default function Header() {
         const scrollPosition = window.scrollY;
         // Затемняем header, когда прокрутили мимо hero секции
         setIsScrolledPastHero(scrollPosition + 150 > heroBottom);
+      } else {
+        setIsScrolledPastHero(false);
       }
     };
 
     handleScroll(); // проверяем при монтировании
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [pathname]);
 
   return (
     <header
@@ -56,16 +69,35 @@ export default function Header() {
         <nav className={styles.center}>
           <ul>
             <li>
-              <a href='#benefits'>О нас</a>
+              {pathname === '/' ? (
+                <a href='#benefits'>О нас</a>
+              ) : (
+                <Link href='/#benefits'>О нас</Link>
+              )}
             </li>
             <li>
-              <a href='#pricing'>Услуги</a>
+              {pathname === '/' ? (
+                <a href='#pricing'>Услуги</a>
+              ) : (
+                <Link href='/#pricing'>Услуги</Link>
+              )}
             </li>
             <li>
-              <a href='#offers'>Акции</a>
+              {pathname === '/' ? (
+                <a href='#offers'>Акции</a>
+              ) : (
+                <Link href='/#offers'>Акции</Link>
+              )}
             </li>
             <li>
-              <a href='#contacts'>Контакты</a>
+              {pathname === '/' ? (
+                <a href='#contacts'>Контакты</a>
+              ) : (
+                <Link href='/#contacts'>Контакты</Link>
+              )}
+            </li>
+            <li>
+              <Link href='/blog'>Блог</Link>
             </li>
           </ul>
         </nav>
@@ -131,24 +163,53 @@ export default function Header() {
           {/* Навигационные ссылки */}
           <ul className={styles.mobileNav}>
             <li>
-              <a href='#benefits' onClick={closeMenu}>
-                О нас
-              </a>
+              {pathname === '/' ? (
+                <a href='#benefits' onClick={closeMenu}>
+                  О нас
+                </a>
+              ) : (
+                <Link href='/#benefits' onClick={closeMenu}>
+                  О нас
+                </Link>
+              )}
             </li>
             <li>
-              <a href='#pricing' onClick={closeMenu}>
-                Услуги
-              </a>
+              {pathname === '/' ? (
+                <a href='#pricing' onClick={closeMenu}>
+                  Услуги
+                </a>
+              ) : (
+                <Link href='/#pricing' onClick={closeMenu}>
+                  Услуги
+                </Link>
+              )}
             </li>
             <li>
-              <a href='#offers' onClick={closeMenu}>
-                Акции
-              </a>
+              {pathname === '/' ? (
+                <a href='#offers' onClick={closeMenu}>
+                  Акции
+                </a>
+              ) : (
+                <Link href='/#offers' onClick={closeMenu}>
+                  Акции
+                </Link>
+              )}
             </li>
             <li>
-              <a href='#contacts' onClick={closeMenu}>
-                Контакты
-              </a>
+              {pathname === '/' ? (
+                <a href='#contacts' onClick={closeMenu}>
+                  Контакты
+                </a>
+              ) : (
+                <Link href='/#contacts' onClick={closeMenu}>
+                  Контакты
+                </Link>
+              )}
+            </li>
+            <li>
+              <Link href='/blog' onClick={closeMenu}>
+                Блог
+              </Link>
             </li>
           </ul>
 

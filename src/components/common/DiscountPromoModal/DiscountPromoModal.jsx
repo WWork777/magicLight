@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import styles from './DiscountPromoModal.module.scss';
 
 export default function DiscountPromoModal() {
@@ -25,7 +26,7 @@ export default function DiscountPromoModal() {
 
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
-        handleClose();
+        setIsOpen(false);
       }
     };
 
@@ -123,6 +124,97 @@ export default function DiscountPromoModal() {
           role='presentation'
           onClick={handleOverlayClick}
         >
+          {/* Летающие пони вокруг модального окна */}
+          {/* Сверху - 2 пони */}
+          <div className={styles.poni1}>
+            <Image
+              src='/images/DiscountPromoModal/poni-1.png'
+              alt='Праздничный пони'
+              width={100}
+              height={100}
+              className={styles.poni}
+              priority
+            />
+          </div>
+          <div className={styles.poni2}>
+            <Image
+              src='/images/DiscountPromoModal/poni-1.png'
+              alt='Праздничный пони'
+              width={105}
+              height={105}
+              className={styles.poni}
+              priority
+            />
+          </div>
+
+          {/* Слева - 3 пони */}
+          <div className={styles.poni3}>
+            <Image
+              src='/images/DiscountPromoModal/poni-1.png'
+              alt='Праздничный пони'
+              width={95}
+              height={95}
+              className={styles.poni}
+              priority
+            />
+          </div>
+
+          <div className={styles.poni5}>
+            <Image
+              src='/images/DiscountPromoModal/poni-1.png'
+              alt='Праздничный пони'
+              width={98}
+              height={98}
+              className={styles.poni}
+              priority
+            />
+          </div>
+
+          {/* Справа - 3 пони */}
+          <div className={styles.poni6}>
+            <Image
+              src='/images/DiscountPromoModal/poni-1.png'
+              alt='Праздничный пони'
+              width={102}
+              height={102}
+              className={styles.poni}
+              priority
+            />
+          </div>
+
+          <div className={styles.poni8}>
+            <Image
+              src='/images/DiscountPromoModal/poni-1.png'
+              alt='Праздничный пони'
+              width={103}
+              height={103}
+              className={styles.poni}
+              priority
+            />
+          </div>
+
+          {/* Снизу - 2 пони */}
+          <div className={styles.poni9}>
+            <Image
+              src='/images/DiscountPromoModal/poni-1.png'
+              alt='Праздничный пони'
+              width={99}
+              height={99}
+              className={styles.poni}
+              priority
+            />
+          </div>
+          <div className={styles.poni10}>
+            <Image
+              src='/images/DiscountPromoModal/poni-1.png'
+              alt='Праздничный пони'
+              width={101}
+              height={101}
+              className={styles.poni}
+              priority
+            />
+          </div>
+
           <div
             className={styles.modal}
             role='dialog'
@@ -145,7 +237,7 @@ export default function DiscountPromoModal() {
               id='discount-modal-title'
               className={`${styles.heading} ${styles.headingAccent}`}
             >
-              50% скидка новым клиентам&nbsp;&mdash; до конца ноября
+              50% скидка новым клиентам&nbsp;&mdash; до конца декабря
             </h3>
 
             <p id='discount-modal-description' className={styles.description}>

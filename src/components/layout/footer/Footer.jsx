@@ -2,8 +2,11 @@
 import styles from './Footer.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
+  const pathname = usePathname();
+
   return (
     <footer className={styles.footer}>
       <div className='container'>
@@ -12,16 +15,35 @@ export default function Footer() {
           <div className={styles.nav}>
             <ul>
               <li>
-                <a href='#benefits'>О нас</a>
+                {pathname === '/' ? (
+                  <a href='#benefits'>О нас</a>
+                ) : (
+                  <Link href='/#benefits'>О нас</Link>
+                )}
               </li>
               <li>
-                <a href='#pricing'>Услуги</a>
+                {pathname === '/' ? (
+                  <a href='#pricing'>Услуги</a>
+                ) : (
+                  <Link href='/#pricing'>Услуги</Link>
+                )}
               </li>
               <li>
-                <a href='#offers'>Акции</a>
+                {pathname === '/' ? (
+                  <a href='#offers'>Акции</a>
+                ) : (
+                  <Link href='/#offers'>Акции</Link>
+                )}
               </li>
               <li>
-                <a href='#contacts'>Контакты</a>
+                {pathname === '/' ? (
+                  <a href='#contacts'>Контакты</a>
+                ) : (
+                  <Link href='/#contacts'>Контакты</Link>
+                )}
+              </li>
+              <li>
+                <Link href='/blog'>Блог</Link>
               </li>
               <li>
                 <a href='/privacy'>Политика конфиденциальности</a>
@@ -40,8 +62,8 @@ export default function Footer() {
               <Image
                 src='/icons/Footer/logo.svg'
                 alt='Логотип'
-                width={300}
-                height={150}
+                width={400}
+                height={200}
               />
             </Link>
           </div>
