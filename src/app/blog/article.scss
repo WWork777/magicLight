@@ -4,7 +4,7 @@ $brand-hover: #9d6f7c;
 .hero-container {
   background: #e7e7e7;
   min-height: 100vh;
-  padding: 100px 20px 50px;
+  padding: 150px 20px 50px;
 
   @media (max-width: 768px) {
     padding: 80px 16px 40px;
@@ -20,6 +20,7 @@ $brand-hover: #9d6f7c;
 
   @media (max-width: 768px) {
     padding: 24px 16px;
+    margin-top: 50px;
   }
 }
 

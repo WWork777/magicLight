@@ -175,14 +175,22 @@ $brand-hover: #9d6f7c;
     grid-template-columns: 1fr;
     gap: 24px;
     padding: 20px 16px;
+    margin: 20px auto;
   }
+}
+
+.blog_title {
+  text-align: center;
+  font-size: 50px;
+  font-family: "Montserrat", "Montserrat Fallback";
+  font-weight: 400;
 }
 
 // Дополнительные стили для контейнера
 .container {
   min-height: 100vh;
   background: #e7e7e7;
-  padding: 80px 40px 50px;
+  padding: 150px 40px 50px;
   max-width: 1600px;
   margin: 0 auto;
   width: 100%;
@@ -193,6 +201,116 @@ $brand-hover: #9d6f7c;
   }
 
   @media (max-width: 768px) {
-    padding: 80px 20px 50px;
+    padding: 140px 20px 50px;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+  font-family: var(--font-montserrat), sans-serif;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-top: 1rem;
+    padding-top: 0;
+    gap: 0.5rem;
+  }
+}
+
+.paginationButton {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 6px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  &:hover:not(.disabled) {
+    background: #f0f0f0;
+    border-color: #999;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.pageNumbers {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.pageButton {
+  display: inline-block;
+  padding: 8px 12px;
+  min-width: 40px;
+  text-align: center;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #f0f0f0;
+    border-color: #999;
+  }
+
+  &.active {
+    background: rgb(186, 134, 148);
+    color: white;
+    border-color: rgb(186, 134, 148);
+    font-weight: bold;
+  }
+}
+
+.ellipsis {
+  padding: 0 8px;
+  color: #999;
+}
+
+/* Для кнопок навигации на мобильных */
+@media (max-width: 768px) {
+  .paginationButton {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .pageButton {
+    padding: 6px 10px;
+    min-width: 36px;
+  }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+  .pageNumbers {
+    gap: 0.25rem;
+  }
+
+  .pageButton {
+    padding: 6px 12px;
+    min-width: 32px;
+    font-size: 0.85rem;
+  }
+
+  .ellipsis {
+    padding: 0 4px;
   }
 }
