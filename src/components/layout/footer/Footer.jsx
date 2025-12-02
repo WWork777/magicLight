@@ -76,7 +76,7 @@ export default function Footer() {
             </div>
 
             <div className={styles.socials}>
-              <a href="https://t.me/VSVET25" target="_blank">
+              <a href="https://t.me/Magic_Light_Laser" target="_blank">
                 <img src="/icons/Footer/telegram.svg" alt="Telegram" />
               </a>
               <a href="https://wa.me/79039166251" target="_blank">

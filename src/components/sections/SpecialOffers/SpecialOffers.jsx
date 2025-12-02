@@ -1,67 +1,67 @@
-'use client';
+"use client";
 
-import styles from './SpecialOffers.module.scss';
-import Image from 'next/image';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import { useEffect, useRef, useState } from 'react';
+import styles from "./SpecialOffers.module.scss";
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import { useEffect, useRef, useState } from "react";
 
 const offers = [
   {
     id: 1,
-    title: 'Заходи на канал',
-    image: '/images/SpecialOffers/studio1.webp',
-    description: 'И будь в курсе выгодных акций и предложений.',
+    title: "Заходи на канал",
+    image: "/images/SpecialOffers/studio1.webp",
+    description: "И будь в курсе выгодных акций и предложений.",
   },
   {
     id: 2,
-    title: 'Подарочный сертификат',
-    image: '/images/SpecialOffers/cert3.webp',
+    title: "Подарочный сертификат",
+    image: "/images/SpecialOffers/cert3.webp",
     description:
-      'Вы можете подарить заботу и комфорт близкому человеку с помощью сертификата на любые процедуры.',
+      "Вы можете подарить заботу и комфорт близкому человеку с помощью сертификата на любые процедуры.",
   },
   {
     id: 3,
-    title: 'Абонементы',
-    image: '/images/SpecialOffers/abonement2.webp',
+    title: "Абонементы",
+    image: "/images/SpecialOffers/abonement2.webp",
     description:
-      'Приобретайте абонементы на курс процедур и экономьте до 30% от полной стоимости.',
+      "Приобретайте абонементы на курс процедур и экономьте до 30% от полной стоимости.",
   },
   {
     id: 4,
-    title: 'Скидки',
-    image: '/images/SpecialOffers/sales.webp',
+    title: "Скидки",
+    image: "/images/SpecialOffers/sales.webp",
     description:
-      'Специальные сезонные акции и скидки на самые популярные услуги.',
+      "Специальные сезонные акции и скидки на самые популярные услуги.",
   },
   {
     id: 5,
-    title: 'Заходи на канал',
-    image: '/images/SpecialOffers/studio1.webp',
-    description: 'И будь в курсе выгоднывх акций и предложений.',
+    title: "Заходи на канал",
+    image: "/images/SpecialOffers/studio1.webp",
+    description: "И будь в курсе выгоднывх акций и предложений.",
   },
   {
     id: 6,
-    title: 'Подарочный сертификат',
-    image: '/images/SpecialOffers/cert3.webp',
+    title: "Подарочный сертификат",
+    image: "/images/SpecialOffers/cert3.webp",
     description:
-      'Вы можете подарить заботу и комфорт близкому человеку с помощью сертификата на любые процедуры.',
+      "Вы можете подарить заботу и комфорт близкому человеку с помощью сертификата на любые процедуры.",
   },
   {
     id: 7,
-    title: 'Абонементы',
-    image: '/images/SpecialOffers/abonement2.webp',
+    title: "Абонементы",
+    image: "/images/SpecialOffers/abonement2.webp",
     description:
-      'Приобретайте абонементы на курс процедур и экономьте до 30% от полной стоимости.',
+      "Приобретайте абонементы на курс процедур и экономьте до 30% от полной стоимости.",
   },
   {
     id: 8,
-    title: 'Скидки',
-    image: '/images/SpecialOffers/sales.webp',
+    title: "Скидки",
+    image: "/images/SpecialOffers/sales.webp",
     description:
-      'Специальные сезонные акции и скидки на самые популярные услуги.',
+      "Специальные сезонные акции и скидки на самые популярные услуги.",
   },
 ];
 
@@ -78,18 +78,18 @@ export default function SpecialOffers() {
   }, []);
 
   return (
-    <section id='offers' className={styles.offers}>
-      <div className='container'>
+    <section id="offers" className={styles.offers}>
+      <div className="container">
         <h2 className={styles.title}>Специальные предложения</h2>
 
         <div className={styles.sliderWrapper}>
           <button
             className={`${styles.navButton} ${styles.prev}`}
-            id='prev-offer'
+            id="prev-offer"
           >
             <Image
-              src='/icons/SpecialOffers/arrow-left.svg'
-              alt='Назад'
+              src="/icons/SpecialOffers/arrow-left.svg"
+              alt="Назад"
               width={30}
               height={30}
             />
@@ -99,8 +99,8 @@ export default function SpecialOffers() {
             ref={swiperRef}
             modules={[Navigation]}
             navigation={{
-              prevEl: '#prev-offer',
-              nextEl: '#next-offer',
+              prevEl: "#prev-offer",
+              nextEl: "#next-offer",
             }}
             spaceBetween={-20}
             slidesPerView={3}
@@ -137,9 +137,9 @@ export default function SpecialOffers() {
                     <>
                       <p className={styles.description}>{offer.description}</p>
                       <a
-                        href='https://t.me/VSVET25'
-                        target='_blank'
-                        rel='noopener noreferrer'
+                        href="https://t.me/Magic_Light_Laser"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className={styles.button}
                       >
                         Перейти в Telegram
@@ -160,11 +160,11 @@ export default function SpecialOffers() {
 
           <button
             className={`${styles.navButton} ${styles.next}`}
-            id='next-offer'
+            id="next-offer"
           >
             <Image
-              src='/icons/SpecialOffers/arrow-right.svg'
-              alt='Вперёд'
+              src="/icons/SpecialOffers/arrow-right.svg"
+              alt="Вперёд"
               width={30}
               height={30}
             />
