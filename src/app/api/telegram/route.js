@@ -35,8 +35,8 @@ export async function POST(request) {
     }
 
     const prefix =
-      tag === 'discount-50-november'
-        ? '🟢 Новая заявка на скидку -50% в ноябре'
+      tag === 'discount-50-december'
+        ? '🟢 Новая заявка на скидку -50% в декабре'
         : '🟢 Новая заявка с сайта';
 
     const message = `${prefix}\nИмя: ${trimmedName}\nТелефон: ${trimmedPhone}`;

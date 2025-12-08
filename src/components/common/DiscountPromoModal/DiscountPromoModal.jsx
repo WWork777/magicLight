@@ -81,7 +81,7 @@ export default function DiscountPromoModal() {
         body: JSON.stringify({
           name: trimmedName,
           phone: trimmedPhone,
-          tag: 'discount-50-november',
+          tag: 'discount-50-december',
         }),
       });
 
