@@ -1,18 +1,18 @@
-'use client';
-import { useEffect } from 'react';
+"use client";
+import { useEffect } from "react";
 
 export default function YandexMetrika() {
   useEffect(() => {
     // Проверяем согласие на обработку персональных данных
     const checkConsent = () => {
-      if (typeof window === 'undefined') return false;
-      const consent = localStorage.getItem('cookieConsent');
-      return consent === 'accepted';
+      if (typeof window === "undefined") return false;
+      const consent = localStorage.getItem("cookieConsent");
+      return consent === "accepted";
     };
 
     // Функция инициализации Яндекс.Метрики
     const initMetrika = () => {
-      if (typeof window === 'undefined') return;
+      if (typeof window === "undefined") return;
 
       (function (m, e, t, r, i, k, a) {
         m[i] =
@@ -34,13 +34,13 @@ export default function YandexMetrika() {
       })(
         window,
         document,
-        'script',
-        'https://mc.yandex.ru/metrika/tag.js',
-        'ym'
+        "script",
+        "https://mc.yandex.ru/metrika/tag.js",
+        "ym"
       );
 
       if (window.ym) {
-        window.ym(104547765, 'init', {
+        window.ym(105359068, "init", {
           clickmap: true,
           trackLinks: true,
           accurateTrackBounce: true,
@@ -60,12 +60,12 @@ export default function YandexMetrika() {
         }
       };
 
-      window.addEventListener('cookieConsentAccepted', handleConsent);
-      window.addEventListener('storage', handleConsent);
+      window.addEventListener("cookieConsentAccepted", handleConsent);
+      window.addEventListener("storage", handleConsent);
 
       return () => {
-        window.removeEventListener('cookieConsentAccepted', handleConsent);
-        window.removeEventListener('storage', handleConsent);
+        window.removeEventListener("cookieConsentAccepted", handleConsent);
+        window.removeEventListener("storage", handleConsent);
       };
     }
   }, []);
