@@ -58,6 +58,7 @@ $brand-hover: #9d6f7c;
   height: 100%;
   overflow: hidden;
   z-index: 0;
+  background: #000;
 }
 
 .video {
@@ -67,7 +68,8 @@ $brand-hover: #9d6f7c;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: translate(-50%, -50%);
+  object-position: center;
+  transform: translate(-50%, -50%) scale(1);
   z-index: 0;
   filter: brightness(0.85); /* 💡 затемнение, чтобы текст был читаем */
 }
@@ -101,7 +103,7 @@ $brand-hover: #9d6f7c;
   font-size: clamp(40px, 5vw, 65px);
   font-weight: 700;
   line-height: 1.2;
-  max-width: 900px;
+  max-width: 100%;
   animation: fadeInUp 1s ease forwards;
   animation-delay: 0.3s;
 }
@@ -273,6 +275,10 @@ $brand-hover: #9d6f7c;
     min-height: 100vh;
   }
 
+  .wrapper {
+    gap: 30px;
+  }
+
   .title {
     font-size: clamp(28px, 5vw, 48px);
   }
@@ -301,6 +307,10 @@ $brand-hover: #9d6f7c;
 
   .privacyText {
     font-size: 12px;
+  }
+
+  .offersSwiper {
+    max-width: 100%;
   }
 }
 
@@ -381,5 +391,441 @@ $brand-hover: #9d6f7c;
 
   .privacyText {
     font-size: 10px;
+  }
+}
+
+/* === Свайпер с акциями === */
+.offersSwiper {
+  position: absolute;
+  bottom: 140px;
+  right: 40px;
+  width: 400px;
+  max-width: calc(100% - 80px);
+  z-index: 2;
+}
+
+.swiper {
+  flex: 1;
+  width: 100%;
+  padding: 0 0 25px 0;
+
+  :global(.swiper-slide) {
+    height: auto;
+    display: flex;
+  }
+
+  :global(.swiper-pagination) {
+    bottom: 0 !important;
+    position: relative;
+    margin-top: 15px;
+  }
+}
+
+/* === Пагинация === */
+.paginationBullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(186, 134, 148, 0.4);
+  border-radius: 50%;
+  margin: 0 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+
+.paginationBulletActive {
+  background: $brand;
+  width: 24px;
+  border-radius: 4px;
+}
+
+.offerSlide {
+  height: auto;
+}
+
+.offerCard {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.offerContent {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 12px;
+}
+
+.offerTitle {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f1d22;
+  margin: 0;
+}
+
+.offerDescription {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+  flex-grow: 1;
+  margin: 0;
+}
+
+.offerButtons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: auto;
+}
+
+.detailsButton {
+  background: $brand;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+
+  &:hover {
+    background: $brand-hover;
+    transform: scale(1.05);
+  }
+}
+
+.bookButton {
+  background: $brand;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: $brand-hover;
+    transform: scale(1.05);
+  }
+}
+
+.whatsappButton {
+  background: $brand;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+
+  &:hover {
+    background: $brand-hover;
+    transform: scale(1.1);
+  }
+
+  img,
+  :global(img) {
+    filter: brightness(0) invert(1);
+  }
+}
+
+.priceLink {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 16px;
+  color: $brand;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-top: 12px;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+
+  &:hover {
+    color: $brand-hover;
+    text-decoration: none;
+  }
+}
+
+/* === Модалка === */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease forwards;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: scaleIn 0.3s ease forwards;
+
+  h3 {
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    margin-top: 20px;
+    color: #1f1d22;
+  }
+
+  p {
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+  }
+}
+
+.modalImage {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 32px;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 1;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* === Адаптив для свайпера === */
+@media (max-width: 1200px) {
+  .offersSwiper {
+    width: 350px;
+    bottom: 120px;
+    right: 30px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .offersSwiper {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto 0;
+  }
+
+  .offerCard {
+    min-height: 240px;
+  }
+
+  .offerContent {
+    padding: 24px;
+  }
+
+  .offerTitle {
+    font-size: 22px;
+  }
+
+  .offerDescription {
+    font-size: 16px;
+  }
+
+  .detailsButton,
+  .bookButton {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .whatsappButton {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 834px) {
+  .offersSwiper {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto 0;
+  }
+
+  .offerCard {
+    min-height: 200px;
+  }
+
+  .offerContent {
+    padding: 20px;
+  }
+
+  .offerTitle {
+    font-size: 20px;
+  }
+
+  .offerDescription {
+    font-size: 15px;
+  }
+
+  .detailsButton,
+  .bookButton {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .whatsappButton {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+  }
+
+  .offerButtons {
+    justify-content: center;
+  }
+
+  .priceLink {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 430px) {
+  .offersSwiper {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 30px;
+  }
+
+  .offerCard {
+    min-height: 160px;
+  }
+
+  .offerContent {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .offerTitle {
+    font-size: 16px;
+  }
+
+  .offerDescription {
+    font-size: 13px;
+  }
+
+  .offerButtons {
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .detailsButton,
+  .bookButton {
+    padding: 8px 16px;
+    font-size: 12px;
+    flex: 1 1 calc(50% - 4px);
+  }
+
+  .whatsappButton {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    margin: 0 auto;
+  }
+
+  .priceLink {
+    font-size: 13px;
+    margin-top: 8px;
+  }
+
+  .modal {
+    padding: 20px;
+    border-radius: 16px;
+
+    h3 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 14px;
+    }
   }
 }

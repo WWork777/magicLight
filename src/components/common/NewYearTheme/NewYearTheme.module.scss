@@ -1,0 +1,110 @@
+.newYearTheme {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.snowContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.snowflake {
+  position: absolute;
+  top: -20px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1em;
+  user-select: none;
+  pointer-events: none;
+  animation: snowfall linear infinite;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(20px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.sparkles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  // Исключаем центральную область где контент
+  pointer-events: none;
+}
+
+.sparkle {
+  position: absolute;
+  color: rgba(255, 215, 0, 0.7);
+  font-size: 1.2em;
+  user-select: none;
+  pointer-events: none;
+  animation: sparkleAnimation ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+
+@keyframes sparkleAnimation {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(180deg);
+  }
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .snowflake {
+    font-size: 0.8em;
+  }
+
+  .sparkle {
+    font-size: 1em;
+  }
+}
+
+// Отключение на очень маленьких экранах для производительности
+@media (max-width: 480px) {
+  .newYearTheme {
+    .snowflake:nth-child(n + 30) {
+      display: none;
+    }
+
+    .sparkle:nth-child(n + 10) {
+      display: none;
+    }
+  }
+}
+
+// Глобальные стили для новогодней темы (можно использовать в других компонентах)
+:global(body.new-year-active) {
+  // Можно добавить общие стили для новогодней темы
+}
+

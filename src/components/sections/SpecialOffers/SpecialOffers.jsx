@@ -11,57 +11,42 @@ import { useEffect, useRef, useState } from "react";
 const offers = [
   {
     id: 1,
-    title: "Заходи на канал",
-    image: "/images/SpecialOffers/studio1.webp",
-    description: "И будь в курсе выгодных акций и предложений.",
+    title: "Скидка 25%",
+    image: "/images/SpecialOffers/sales.webp",
+    description: "Скидка 25% на 1, 4, 7, 10 посещение по карте клиента.",
   },
   {
     id: 2,
-    title: "Подарочный сертификат",
-    image: "/images/SpecialOffers/cert3.webp",
-    description:
-      "Вы можете подарить заботу и комфорт близкому человеку с помощью сертификата на любые процедуры.",
+    title: "Приведи подругу",
+    image: "/images/SpecialOffers/studio1.webp",
+    description: "Приведи подругу и получи бонус 500 рублей на свой счёт.",
   },
   {
     id: 3,
-    title: "Абонементы",
-    image: "/images/SpecialOffers/abonement2.webp",
-    description:
-      "Приобретайте абонементы на курс процедур и экономьте до 30% от полной стоимости.",
-  },
-  {
-    id: 4,
-    title: "Скидки",
-    image: "/images/SpecialOffers/sales.webp",
-    description:
-      "Специальные сезонные акции и скидки на самые популярные услуги.",
-  },
-  {
-    id: 5,
-    title: "Заходи на канал",
-    image: "/images/SpecialOffers/studio1.webp",
-    description: "И будь в курсе выгоднывх акций и предложений.",
-  },
-  {
-    id: 6,
     title: "Подарочный сертификат",
     image: "/images/SpecialOffers/cert3.webp",
     description:
       "Вы можете подарить заботу и комфорт близкому человеку с помощью сертификата на любые процедуры.",
   },
   {
-    id: 7,
+    id: 4,
     title: "Абонементы",
     image: "/images/SpecialOffers/abonement2.webp",
     description:
       "Приобретайте абонементы на курс процедур и экономьте до 30% от полной стоимости.",
   },
   {
-    id: 8,
+    id: 5,
     title: "Скидки",
     image: "/images/SpecialOffers/sales.webp",
     description:
       "Специальные сезонные акции и скидки на самые популярные услуги.",
+  },
+  {
+    id: 6,
+    title: "Заходи на канал",
+    image: "/images/SpecialOffers/studio1.webp",
+    description: "И будь в курсе выгодных акций и предложений.",
   },
 ];
 

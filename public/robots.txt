@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Директива Host для Yandex (указывает основной домен)
+Host: https://epilyaciya-kemerovo.ru
+
+Sitemap: https://epilyaciya-kemerovo.ru/sitemap.xml

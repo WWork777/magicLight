@@ -146,8 +146,11 @@ export default function Pricing() {
                 )}
                 <h3>{service.title}</h3>
                 <p className={styles.price}>
-                  {service.price}
-                  <span className={styles.ruble}>₽</span>
+                  <span className={styles.oldPrice}>{service.price}₽</span>
+                  <span className={styles.newPrice}>
+                    {Math.round(service.price * 0.75)}
+                    <span className={styles.ruble}>₽</span>
+                  </span>
                 </p>
                 <div className={styles.actions}>
                   <a

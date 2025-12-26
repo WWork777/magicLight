@@ -188,6 +188,8 @@ $montserat: var(--font-montserrat), sans-serif;
       margin-top: auto;
       display: flex;
       align-items: baseline;
+      flex-direction: column;
+      gap: 4px;
 
       .ruble {
         font-family: $montserat;
@@ -195,6 +197,21 @@ $montserat: var(--font-montserrat), sans-serif;
         font-weight: 500;
         margin-left: 4px;
         vertical-align: baseline;
+      }
+
+      .oldPrice {
+        font-size: 20px;
+        color: $muted;
+        text-decoration: line-through;
+        font-weight: 400;
+      }
+
+      .newPrice {
+        font-size: 32px;
+        font-weight: 500;
+        color: $brand;
+        display: flex;
+        align-items: baseline;
       }
     }
 
