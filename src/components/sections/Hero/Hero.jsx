@@ -201,7 +201,7 @@ export default function Hero() {
                       </a>
                     </div>
                     {/* Ссылка на прайс */}
-                    <a href='#pricing' className={styles.priceLink}>
+                    <a href='/pricing-discount' className={styles.priceLink}>
                       Прайс на 1, 4, 7, 10 посещение
                     </a>
                   </div>

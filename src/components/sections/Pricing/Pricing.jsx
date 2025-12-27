@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import styles from './Pricing.module.scss';
 
-export default function Pricing() {
+export default function Pricing({ showDiscount = false }) {
   const [serviceType, setServiceType] = useState('laser'); // laser | lpg
   const [gender, setGender] = useState('female'); // female | male (только для laser)
   const [category, setCategory] = useState('Комплексы');
@@ -146,11 +146,20 @@ export default function Pricing() {
                 )}
                 <h3>{service.title}</h3>
                 <p className={styles.price}>
-                  <span className={styles.oldPrice}>{service.price}₽</span>
-                  <span className={styles.newPrice}>
-                    {Math.round(service.price * 0.75)}
-                    <span className={styles.ruble}>₽</span>
-                  </span>
+                  {showDiscount ? (
+                    <>
+                      <span className={styles.oldPrice}>{service.price}₽</span>
+                      <span className={styles.newPrice}>
+                        {Math.round(service.price * 0.75)}
+                        <span className={styles.ruble}>₽</span>
+                      </span>
+                    </>
+                  ) : (
+                    <span className={styles.regularPrice}>
+                      {service.price}
+                      <span className={styles.ruble}>₽</span>
+                    </span>
+                  )}
                 </p>
                 <div className={styles.actions}>
                   <a

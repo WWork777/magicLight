@@ -213,6 +213,14 @@ $montserat: var(--font-montserrat), sans-serif;
         display: flex;
         align-items: baseline;
       }
+
+      .regularPrice {
+        font-size: 32px;
+        font-weight: 500;
+        color: $text;
+        display: flex;
+        align-items: baseline;
+      }
     }
 
     .actions {
