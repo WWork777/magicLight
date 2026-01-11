@@ -21,8 +21,8 @@ export default function Contacts() {
             {/* Соцсети */}
             <div className={styles.label}>Соцсети</div>
             <div className={`${styles.value} ${styles.socials}`}>
-              <a href="https://wa.me/79039166251" target="_blank">
-                <img src="/icons/Contacts/whatsapp.svg" alt="WhatsApp" />
+              <a href="https://max.ru/u/f9LHodD0cOLklVlmDG32_Tjj3hv6qCHhN-bIwpO72_v_tv80tIHKTLgb6y0" target="_blank">
+                <img src="/icons/Contacts/max.svg" alt="max" />
               </a>
               <a href="https://vk.com/laser_vs42_kem" target="_blank">
                 <img src="/icons/Contacts/vk.svg" alt="VK" />

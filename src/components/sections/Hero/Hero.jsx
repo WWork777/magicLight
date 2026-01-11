@@ -81,7 +81,7 @@ export default function Hero() {
           </p> */}
 
           <a
-            href='https://wa.me/79039166251'
+            href='https://max.ru/u/f9LHodD0cOLklVlmDG32_Tjj3hv6qCHhN-bIwpO72_v_tv80tIHKTLgb6y0'
             target='_blank'
             rel='noopener noreferrer'
             className={styles.mainButton}
@@ -104,19 +104,19 @@ export default function Hero() {
 
             <div className={styles.contactItem}>
               <a
-                href='https://wa.me/79039166251'
+                href='https://max.ru/u/f9LHodD0cOLklVlmDG32_Tjj3hv6qCHhN-bIwpO72_v_tv80tIHKTLgb6y0'
                 target='_blank'
                 rel='noopener noreferrer'
                 className={styles.circleButton}
               >
                 <Image
-                  src='/icons/Contacts/whatsapp.svg'
-                  alt='WhatsApp'
+                  src='/icons/Contacts/max.svg'
+                  alt='max'
                   width={28}
                   height={28}
                 />
               </a>
-              <span>WhatsApp</span>
+              <span>Max</span>
             </div>
           </div>
 
@@ -187,14 +187,14 @@ export default function Hero() {
                         Записаться
                       </a>
                       <a
-                        href='https://wa.me/79039166251'
+                        href='https://max.ru/u/f9LHodD0cOLklVlmDG32_Tjj3hv6qCHhN-bIwpO72_v_tv80tIHKTLgb6y0'
                         target='_blank'
                         rel='noopener noreferrer'
                         className={styles.whatsappButton}
                       >
                         <Image
-                          src='/icons/Contacts/whatsapp.svg'
-                          alt='WhatsApp'
+                          src='/icons/Contacts/max.svg'
+                          alt='max'
                           width={24}
                           height={24}
                         />
