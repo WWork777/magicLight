@@ -79,8 +79,8 @@ export default function Footer() {
               <a href="https://t.me/Magic_Light_Laser" target="_blank">
                 <img src="/icons/Footer/telegram.svg" alt="Telegram" />
               </a>
-              <a href="https://wa.me/79039166251" target="_blank">
-                <img src="/icons/Footer/whatsapp.svg" alt="WhatsApp" />
+              <a href="https://max.ru/u/f9LHodD0cOLklVlmDG32_Tjj3hv6qCHhN-bIwpO72_v_tv80tIHKTLgb6y0" target="_blank">
+                <img src="/icons/Footer/max.svg" alt="max" />
               </a>
               <a href="https://vk.com/laser_vs42_kem" target="_blank">
                 <img src="/icons/Footer/vk.svg" alt="VK" />
@@ -88,7 +88,7 @@ export default function Footer() {
             </div>
 
             <a
-              href="https://wa.me/79039166251"
+              href="https://max.ru/u/f9LHodD0cOLklVlmDG32_Tjj3hv6qCHhN-bIwpO72_v_tv80tIHKTLgb6y0"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.button}

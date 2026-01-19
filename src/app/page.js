@@ -117,7 +117,7 @@ export default function HomePage() {
     ],
     sameAs: [
       'https://t.me/Magic_Light_Laser',
-      'https://wa.me/79039166251',
+      'https://max.ru/u/f9LHodD0cOLklVlmDG32_Tjj3hv6qCHhN-bIwpO72_v_tv80tIHKTLgb6y0',
       'https://vk.com/laser_vs42_kem',
     ],
     aggregateRating: {

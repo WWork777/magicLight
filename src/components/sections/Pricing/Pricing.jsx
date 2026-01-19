@@ -163,7 +163,7 @@ export default function Pricing({ showDiscount = false }) {
                 </p>
                 <div className={styles.actions}>
                   <a
-                    href='https://wa.me/79039166251'
+                    href='https://max.ru/u/f9LHodD0cOLklVlmDG32_Tjj3hv6qCHhN-bIwpO72_v_tv80tIHKTLgb6y0'
                     target='_blank'
                     rel='noopener noreferrer'
                     className={styles.btn}
@@ -171,14 +171,14 @@ export default function Pricing({ showDiscount = false }) {
                     Записаться
                   </a>
                   <a
-                    href='https://wa.me/79000000000'
+                    href='https://max.ru/u/f9LHodD0cOLklVlmDG32_Tjj3hv6qCHhN-bIwpO72_v_tv80tIHKTLgb6y0'
                     target='_blank'
                     rel='noopener noreferrer'
                     className={styles.whatsapp}
                   >
                     <Image
-                      src='/icons/Pricing/whatsapp.svg'
-                      alt='WhatsApp'
+                      src='/icons/Pricing/max.svg'
+                      alt='max'
                       width={20}
                       height={20}
                     />

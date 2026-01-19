@@ -115,10 +115,10 @@ export default function Header() {
                 height={25}
               />
             </a>
-            <a href="https://wa.me/79039166251">
+            <a href="https://max.ru/u/f9LHodD0cOLklVlmDG32_Tjj3hv6qCHhN-bIwpO72_v_tv80tIHKTLgb6y0">
               <Image
-                src="/icons/Header/whatsapp.svg"
-                alt="WhatsApp"
+                src="/icons/Header/max.svg"
+                alt="max"
                 width={25}
                 height={25}
               />
