@@ -95,6 +95,12 @@ export default function Footer() {
             >
               Записаться онлайн
             </a>
+
+            <div className={styles.legalInfo}>
+              <p>ИП Смирнова Татьяна Анатольевна</p>
+              <p>ИНН: 420537044581</p>
+              <p>ОГРНИП: 325420500143332</p>
+            </div>
           </div>
         </div>
       </div>
