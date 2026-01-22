@@ -109,6 +109,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ru" className={`${montserrat.variable} ${wixMadefor.variable}`}>
       <head>
+        {/* YCLIENTS скрипт */}
+        <Script
+          src="https://w745741.yclients.com/widgetJS"
+          strategy="afterInteractive"
+          charSet="UTF-8"
+        />
+      </head>
+
+      <body>
         <Script
           id="roistat-counter"
           strategy="afterInteractive"
@@ -123,15 +132,6 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
-        {/* YCLIENTS скрипт */}
-        <Script
-          src="https://w745741.yclients.com/widgetJS"
-          strategy="afterInteractive"
-          charSet="UTF-8"
-        />
-      </head>
-
-      <body>
         {/* Новогодняя тема */}
         <NewYearTheme />
 
