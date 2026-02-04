@@ -160,8 +160,8 @@ export default function HomePage() {
         }}
       />
       <Hero />
-      <Benefits />
       <Pricing />
+      <Benefits />
       <SpecialOffers />
       <Studio />
       <Reviews />
