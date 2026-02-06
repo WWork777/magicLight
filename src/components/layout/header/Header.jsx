@@ -5,6 +5,65 @@ import { usePathname } from "next/navigation";
 import styles from "./Header.module.scss";
 import Link from "next/link";
 import Image from "next/image";
+const SERVICE_SLUGS = [
+  
+  "bikini-lyuboe-podmyshechnye-vpadiny-lazernaya-epilyaciya",
+  "podmyshechnye-vpadiny-goleni-lazernaya-epilyaciya",
+  "bikini-lyuboe-goleni-lazernaya-epilyaciya",
+  "bikini-lyuboe-goleni-podmyshki-lazernaya-epilyaciya",
+  "bikini-lyuboe-nogi-celikom-podmyshki-lazernaya-epilyaciya",
+  "goleni-palcy-koleni-lazernaya-epilyaciya",
+  "nogi-celikom-lazernaya-epilyaciya",
+  "yagodicy-lazernaya-epilyaciya",
+  "bedra-perednyaya-storona-koleni-lazernaya-epilyaciya",
+  "bedra-zadnyaya-storona-koleni-lazernaya-epilyaciya",
+  "bedra-polnostyu-koleni-lazernaya-epilyaciya",
+  "podmyshechnye-vpadiny-lazernaya-epilyaciya",
+  "plechi-lazernaya-epilyaciya",
+  "ruki-polnostyu-lazernaya-epilyaciya",
+  "ruki-do-loktya-lazernaya-epilyaciya",
+  "kisti-palcy-lazernaya-epilyaciya",
+  "klassicheskoe-bikini-lazernaya-epilyaciya",
+  "glubokoe-bikini-lazernaya-epilyaciya",
+  "totalnoe-bikini-mezhyagodichka-lazernaya-epilyaciya",
+  "spina-polnostyu-lazernaya-epilyaciya",
+  "zhivot-polnostyu-lazernaya-epilyaciya",
+  "liniya-zhivota-lazernaya-epilyaciya",
+  "zhivot-niz-lazernaya-epilyaciya",
+  "areoly-lazernaya-epilyaciya",
+  "verhnyaya-guba-lazernaya-epilyaciya",
+  "lico-polnostyu-lazernaya-epilyaciya",
+  "lob-lazernaya-epilyaciya",
+  "mezhbrove-lazernaya-epilyaciya",
+  "podborodok-lazernaya-epilyaciya",
+  "ushi-lazernaya-epilyaciya",
+  "sheki-lazernaya-epilyaciya",
+  "skula-lazernaya-epilyaciya",
+  "bakenbardy-lazernaya-epilyaciya",
+  "podmyshechnye-vpadiny-sheya-perednyaya-zadnyaya-chast-lazernaya-epilyaciya",
+  "podmyshechnye-vpadiny-lico-polnostyu-lazernaya-epilyaciya",
+  "golen-palcy-koleni-lazernaya-epilyaciya-muzhchiny",
+  "nogi-celikom-lazernaya-epilyaciya-muzhchiny",
+  "podmyshechnye-vpadiny-lazernaya-epilyaciya-muzhchiny",
+  "plechi-lazernaya-epilyaciya-muzhchiny",
+  "ruki-polnostyu-lazernaya-epilyaciya-muzhchiny",
+  "predpleche-lazernaya-epilyaciya",
+  "spina-polnostyu-lazernaya-epilyaciya-muzhchiny",
+  "zhivot-polnostyu-lazernaya-epilyaciya-muzhchiny",
+  "liniya-zhivota-lazernaya-epilyaciya-muzhchiny",
+  "grud-muzhskaya-lazernaya-epilyaciya",
+  "sheya-zadnyaya-chast-lazernaya-epilyaciya",
+  "sheya-perednyaya-chast-lazernaya-epilyaciya",
+  "sheki-lazernaya-epilyaciya-muzhchiny",
+  "bakenbardy-lazernaya-epilyaciya-muzhchiny",
+  "pervoe-probnoe-poseshchenie-lpg-massazh",
+  "razovoe-poseshchenie-25min-lpg-massazh",
+  "razovoe-poseshchenie-45min-lpg-massazh",
+  "kostyum-lpg-massazh",
+  "10-seansov-po-25min-lpg-massazh-abonement",
+  "10-seansov-45min-lpg-massazh-abonement",
+  "kostyum-lpg-massazh-abonement"
+];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,31 +78,40 @@ export default function Header() {
   }, [isMenuOpen]);
 
   useEffect(() => {
-    // Проверяем, находимся ли мы на странице блога
-    const isBlogPage = pathname?.startsWith("/blog") || false;
+  const isBlogPage = pathname?.startsWith("/blog");
 
-    // Если на странице блога, сразу затемняем хедер
-    if (isBlogPage) {
-      setIsScrolledPastHero(true);
-      return;
+  // Извлекаем чистый слаг из URL (например: 'bikini-lyuboe...')
+  const currentSlug = pathname?.replace(/^\//, ""); 
+
+  // Проверяем: 
+  // 1. Есть ли слаг вообще
+  // 2. Нет ли в нем лишних слешей (чтобы не спутать с другими разделами)
+  // 3. Содержит ли он характерное окончание "lazernaya-epilyaciya" (с учетом возможных опечаток)
+  const isServicePage = 
+    currentSlug && 
+    !currentSlug.includes('/') && 
+    (currentSlug.includes("lazernaya-epilyaciya") || currentSlug.includes("lazernaya-epilyatsiya") || currentSlug.includes("lpg-massazh"));
+
+  if (isBlogPage || isServicePage) {
+    setIsScrolledPastHero(true);
+    return;
+  }
+
+  const handleScroll = () => {
+    const hero = document.getElementById("hero");
+    if (hero) {
+      const heroBottom = hero.offsetTop + hero.offsetHeight;
+      const scrollPosition = window.scrollY;
+      setIsScrolledPastHero(scrollPosition + 150 > heroBottom);
+    } else {
+      setIsScrolledPastHero(false);
     }
+  };
 
-    const handleScroll = () => {
-      const hero = document.getElementById("hero");
-      if (hero) {
-        const heroBottom = hero.offsetTop + hero.offsetHeight;
-        const scrollPosition = window.scrollY;
-        // Затемняем header, когда прокрутили мимо hero секции
-        setIsScrolledPastHero(scrollPosition + 150 > heroBottom);
-      } else {
-        setIsScrolledPastHero(false);
-      }
-    };
-
-    handleScroll(); // проверяем при монтировании
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathname]);
+  handleScroll();
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [pathname]);
 
   return (
     <header

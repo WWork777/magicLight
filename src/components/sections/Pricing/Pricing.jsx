@@ -1,14 +1,15 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { servicesData } from '@/data/services';
+import { structuredServices } from '@/data/services';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import styles from './Pricing.module.scss';
+import Link from 'next/link';
 
 export default function Pricing({ showDiscount = false }) {
-  const [serviceType, setServiceType] = useState('laser'); // laser | lpg
+  const [serviceType, setServiceType] = useState('laser'); // laser | lgp
   const [gender, setGender] = useState('female'); // female | male (только для laser)
   const [category, setCategory] = useState('Комплексы');
   const [lgpCategory, setLgpCategory] = useState('Разовые посещения');
@@ -24,17 +25,26 @@ export default function Pricing({ showDiscount = false }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Получаем список категорий
-  const categories =
-    serviceType === 'laser'
-      ? Object.keys(servicesData.laser[gender] || {})
-      : Object.keys(servicesData.lgp || {});
+  // Получаем список категорий для текущего типа услуги и пола
+  const getCategories = () => {
+    if (serviceType === 'laser') {
+      return Object.keys(structuredServices.laser[gender] || {});
+    } else {
+      return Object.keys(structuredServices.lgp || {});
+    }
+  };
 
-  // Получаем список услуг
-  const services =
-    serviceType === 'laser'
-      ? servicesData.laser[gender]?.[category] || []
-      : servicesData.lgp[lgpCategory] || [];
+  // Получаем список услуг для текущей категории
+  const getServices = () => {
+    if (serviceType === 'laser') {
+      return structuredServices.laser[gender]?.[category] || [];
+    } else {
+      return structuredServices.lgp[lgpCategory] || [];
+    }
+  };
+
+  const categories = getCategories();
+  const services = getServices();
 
   return (
     <section id='pricing' className={styles.pricing}>
@@ -47,7 +57,8 @@ export default function Pricing({ showDiscount = false }) {
             className={serviceType === 'laser' ? styles.active : ''}
             onClick={() => {
               setServiceType('laser');
-              setCategory(Object.keys(servicesData.laser.female)[0]);
+              setGender('female');
+              setCategory('Комплексы');
             }}
           >
             Эпиляция
@@ -56,10 +67,10 @@ export default function Pricing({ showDiscount = false }) {
             className={serviceType === 'lgp' ? styles.active : ''}
             onClick={() => {
               setServiceType('lgp');
-              setLgpCategory(Object.keys(servicesData.lgp)[0]);
+              setLgpCategory('Разовые посещения');
             }}
           >
-            LGP массаж
+            LPG массаж
           </button>
         </div>
 
@@ -70,7 +81,7 @@ export default function Pricing({ showDiscount = false }) {
               className={gender === 'female' ? styles.active : ''}
               onClick={() => {
                 setGender('female');
-                setCategory(Object.keys(servicesData.laser.female)[0]);
+                setCategory('Комплексы');
               }}
             >
               Женская
@@ -79,7 +90,7 @@ export default function Pricing({ showDiscount = false }) {
               className={gender === 'male' ? styles.active : ''}
               onClick={() => {
                 setGender('male');
-                setCategory(Object.keys(servicesData.laser.male)[0]);
+                setCategory('Комплексы');
               }}
             >
               Мужская
@@ -88,7 +99,7 @@ export default function Pricing({ showDiscount = false }) {
         )}
 
         {/* Категории для laser и lgp */}
-        {(serviceType === 'laser' || serviceType === 'lgp') && (
+        {categories.length > 0 && (
           <div className={styles.categories}>
             {categories.map((cat) => (
               <button
@@ -117,7 +128,6 @@ export default function Pricing({ showDiscount = false }) {
         )}
 
         {/* Сами карточки */}
-
         <Swiper
           spaceBetween={25}
           breakpoints={{
@@ -136,15 +146,26 @@ export default function Pricing({ showDiscount = false }) {
                 {/* Фотка */}
                 {service.image && (
                   <div className={styles.imgWrapper}>
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className={styles.img}
-                    />
+                    {/* Ссылка на услугу - теперь по корневому пути */}
+                    <Link href={`/${service.slug}`} className={styles.imageLink}>
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        className={styles.img}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </Link>
                   </div>
                 )}
-                <h3>{service.title}</h3>
+                
+                {/* Заголовок как ссылка */}
+                <h3>
+                  <Link href={`/${service.slug}`} className={styles.titleLink}>
+                    {service.title}
+                  </Link>
+                </h3>
+                
                 <p className={styles.price}>
                   {showDiscount ? (
                     <>
@@ -161,6 +182,7 @@ export default function Pricing({ showDiscount = false }) {
                     </span>
                   )}
                 </p>
+                
                 <div className={styles.actions}>
                   <a
                     href='https://max.ru/u/f9LHodD0cOLklVlmDG32_Tjj3hv6qCHhN-bIwpO72_v_tv80tIHKTLgb6y0'
@@ -183,11 +205,26 @@ export default function Pricing({ showDiscount = false }) {
                       height={20}
                     />
                   </a>
+                  
+                  {/* Кнопка "Подробнее" */}
+                  {/* <Link 
+                    href={`/${service.slug}`}
+                    className={styles.detailsBtn}
+                  >
+                    Подробнее →
+                  </Link> */}
                 </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+        
+        {/* Если нет услуг в выбранной категории */}
+        {services.length === 0 && (
+          <div className={styles.noServices}>
+            <p>В этой категории пока нет услуг</p>
+          </div>
+        )}
       </div>
     </section>
   );
