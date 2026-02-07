@@ -15,23 +15,65 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const service = getServiceBySlug(params.slug);
+  const { slug } = await params;
+  const service = getServiceBySlug(slug);
   
   if (!service) {
     return {
-      title: "Услуга не найдена | Лазерная эпиляция",
+      title: "Услуга не найдена | Волшебный свет",
       description: "Запрашиваемая услуга не найдена",
     };
   }
 
+  const title = service.seoTitle || `${service.title} | Волшебный свет`;
+  const description = service.seoDescription || service.description;
+  const imageUrl = service.image 
+    ? `https://epilyaciya-kemerovo.ru${service.image}`
+    : "https://epilyaciya-kemerovo.ru/images/Hero/Hero.webp";
+  const url = `https://epilyaciya-kemerovo.ru/${service.slug}`;
+
   return {
-    title: service.seoTitle || `${service.title} | Лазерная эпиляция`,
-    description: service.seoDescription || service.description,
+    title,
+    description,
+    keywords: [
+      service.title,
+      "лазерная эпиляция",
+      "эпиляция Кемерово",
+      "салон эпиляции",
+      service.category === "laser" ? "диодный лазер" : "LPG массаж",
+      service.group,
+    ],
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: "Волшебный свет - Лазерная эпиляция в Кемерово",
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: service.title,
+        },
+      ],
+      locale: "ru_RU",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [imageUrl],
+    },
+    alternates: {
+      canonical: url,
+    },
   };
 }
 
-export default function ServicePage({ params }) {
-  const service = getServiceBySlug(params.slug);
+export default async function ServicePage({ params }) {
+  const { slug } = await params;
+  const service = getServiceBySlug(slug);
   
   // Если это не услуга, показываем 404
   if (!service) {
