@@ -626,3 +626,18 @@ $montserat: var(--font-montserrat), sans-serif;
 .swiper-slide {
   height: auto;
 }
+
+
+.detailsBtn {
+  text-decoration: none;
+  background: transparent;
+      border: none;
+      font-family: $montserat;
+      font-size: 17px;
+      font-weight: 400;
+      color: $muted;
+      cursor: pointer;
+      // padding: 8px 16px;
+      // border-radius: 20px;
+      transition: all 0.3s;
+}

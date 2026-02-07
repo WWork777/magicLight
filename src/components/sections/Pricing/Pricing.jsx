@@ -165,7 +165,13 @@ export default function Pricing({ showDiscount = false }) {
                     {service.title}
                   </Link>
                 </h3>
-                
+                {/* Кнопка "Подробнее" */}
+                  <Link 
+                    href={`/${service.slug}`}
+                    className={styles.detailsBtn}
+                  >
+                    Подробнее →
+                  </Link>
                 <p className={styles.price}>
                   {showDiscount ? (
                     <>
@@ -206,13 +212,7 @@ export default function Pricing({ showDiscount = false }) {
                     />
                   </a>
                   
-                  {/* Кнопка "Подробнее" */}
-                  {/* <Link 
-                    href={`/${service.slug}`}
-                    className={styles.detailsBtn}
-                  >
-                    Подробнее →
-                  </Link> */}
+                  
                 </div>
               </div>
             </SwiperSlide>
