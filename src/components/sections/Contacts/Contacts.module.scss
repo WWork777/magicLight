@@ -38,6 +38,11 @@ $Bg: #e7e7e7;
       color: #777;
       font-weight: 500;
       white-space: nowrap;
+
+      // Отступ для label "Соцсети" (пятый элемент - третий label)
+      &:nth-of-type(5) {
+        margin-top: 20px;
+      }
     }
 
     .value {
@@ -64,16 +69,16 @@ $Bg: #e7e7e7;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 36px;
-        height: 36px;
+        width: 48px;
+        height: 48px;
         border: 1px solid #999;
         border-radius: 8px;
         background: $Bg;
         transition: all 0.3s ease;
 
         img {
-          width: 20px;
-          height: 20px;
+          width: 28px;
+          height: 28px;
           object-fit: contain;
         }
 
@@ -168,12 +173,12 @@ $Bg: #e7e7e7;
         gap: 10px;
 
         a {
-          width: 32px;
-          height: 32px;
+          width: 44px;
+          height: 44px;
 
           img {
-            width: 18px;
-            height: 18px;
+            width: 26px;
+            height: 26px;
           }
         }
       }

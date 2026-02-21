@@ -7,6 +7,7 @@ import YClientsInit from "@/components/common/YClientsInit/YClientsInit";
 import CookieBanner from "@/components/common/CookieBanner/CookieBanner";
 import YandexMetrika from "@/components/common/YandexMetrika/YandexMEtrika";
 import NewYearTheme from "@/components/common/NewYearTheme/NewYearTheme";
+import SpringTheme from "@/components/common/SpringTheme/SpringTheme";
 
 const montserrat = Montserrat({
   subsets: ["latin", "cyrillic"],
@@ -120,6 +121,8 @@ export default function RootLayout({ children }) {
       <body>
         {/* Новогодняя тема */}
         <NewYearTheme />
+        {/* Весенняя тема */}
+        <SpringTheme />
 
         <Header />
         <main>{children}</main>
