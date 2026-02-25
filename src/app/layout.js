@@ -5,6 +5,7 @@ import "./globals.css";
 import Script from "next/script";
 import YClientsInit from "@/components/common/YClientsInit/YClientsInit";
 import CookieBanner from "@/components/common/CookieBanner/CookieBanner";
+import PromoModal from "@/components/common/PromoModal/PromoModal";
 import YandexMetrika from "@/components/common/YandexMetrika/YandexMEtrika";
 import NewYearTheme from "@/components/common/NewYearTheme/NewYearTheme";
 import SpringTheme from "@/components/common/SpringTheme/SpringTheme";
@@ -129,6 +130,9 @@ export default function RootLayout({ children }) {
 
         {/* Cookie баннер - теперь сам управляет состоянием */}
         <CookieBanner />
+
+        {/* Модалка акции 50% для новых (показ с задержкой для SEO) */}
+        <PromoModal />
 
         {/* YandexMetrika теперь сам проверяет согласие */}
         <YandexMetrika />

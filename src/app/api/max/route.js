@@ -1,13 +1,21 @@
 import { NextResponse } from 'next/server';
 
-const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+const MAX_ACCESS_TOKEN = process.env.MAX_ACCESS_TOKEN;
+const MAX_CHAT_ID = process.env.MAX_CHAT_ID;
+const MAX_USER_ID = process.env.MAX_USER_ID;
 
 const ERROR_MESSAGE = 'Сервис временно недоступен. Попробуйте позже.';
 
+function getMaxDestination() {
+  if (MAX_CHAT_ID) return { type: 'chat_id', value: MAX_CHAT_ID };
+  if (MAX_USER_ID) return { type: 'user_id', value: MAX_USER_ID };
+  return null;
+}
+
 export async function POST(request) {
-  if (!BOT_TOKEN || !CHAT_ID) {
-    console.error('TELEGRAM env variables are not configured.');
+  const dest = getMaxDestination();
+  if (!MAX_ACCESS_TOKEN || !dest) {
+    console.error('MAX env variables are not configured (MAX_ACCESS_TOKEN and MAX_CHAT_ID or MAX_USER_ID).');
     return NextResponse.json(
       { success: false, error: ERROR_MESSAGE },
       { status: 500 }
@@ -41,26 +49,23 @@ export async function POST(request) {
         ? '🌸 Новая заявка по акции Весна -50% для новых клиентов'
         : '🟢 Новая заявка с сайта';
 
-    const message = `${prefix}\nИмя: ${trimmedName}\nТелефон: ${trimmedPhone}`;
+    const text = `${prefix}\nИмя: ${trimmedName}\nТелефон: ${trimmedPhone}`;
 
-    const telegramResponse = await fetch(
-      `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          chat_id: CHAT_ID,
-          text: message,
-          parse_mode: 'HTML',
-        }),
-      }
-    );
+    const url = new URL('https://platform-api.max.ru/messages');
+    url.searchParams.set(dest.type, dest.value);
 
-    if (!telegramResponse.ok) {
-      const errorText = await telegramResponse.text();
-      console.error('Telegram API error:', errorText);
+    const maxResponse = await fetch(url.toString(), {
+      method: 'POST',
+      headers: {
+        Authorization: MAX_ACCESS_TOKEN,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ text }),
+    });
+
+    if (!maxResponse.ok) {
+      const errorText = await maxResponse.text();
+      console.error('MAX API error:', maxResponse.status, errorText);
       return NextResponse.json(
         { success: false, error: ERROR_MESSAGE },
         { status: 502 }
@@ -69,7 +74,7 @@ export async function POST(request) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Telegram handler error:', error);
+    console.error('MAX handler error:', error);
     return NextResponse.json(
       { success: false, error: ERROR_MESSAGE },
       { status: 500 }
