@@ -43,6 +43,26 @@ export async function POST(request) {
 
     const message = `${prefix}\nИмя: ${trimmedName}\nТелефон: ${trimmedPhone}`;
 
+    // MAX
+    try{
+      const Phone = "79039166251";
+      const idInstance = "3100517801";
+      const apiTokenInstance =
+      "4e23b210658549c881680633b93bb11301a0f304a927433da6";
+      const maxResponse = await fetch(
+      `https://api.green-api.com/waInstance${idInstance}/SendMessage/${apiTokenInstance}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+        chatId: `${Phone}@c.us`,
+        message: message,
+        }),
+      },
+      );
+    }
+    catch {} 
+
     const telegramResponse = await fetch(
       `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
       {

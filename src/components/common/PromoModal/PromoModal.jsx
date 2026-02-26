@@ -55,6 +55,7 @@ export default function PromoModal() {
       return;
     }
     setLoading(true);
+    
     try {
       const res = await fetch('/api/telegram', {
         method: 'POST',
