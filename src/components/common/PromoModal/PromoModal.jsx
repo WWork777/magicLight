@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import styles from './PromoModal.module.scss';
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import styles from "./PromoModal.module.scss";
 
 const DELAY_MS = 8000;
 const SCROLL_THRESHOLD_RATIO = 0.5; // половина Hero (Hero = 100vh)
@@ -12,18 +12,18 @@ export default function PromoModal() {
   const [mounted, setMounted] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   useEffect(() => {
     setMounted(true);
-    if (typeof window === 'undefined') return;
+    if (typeof window === "undefined") return;
 
     let timeoutId = null;
 
     const show = () => {
       setVisible(true);
       if (timeoutId) clearTimeout(timeoutId);
-      window.removeEventListener('scroll', onScroll, { passive: true });
+      window.removeEventListener("scroll", onScroll, { passive: true });
     };
 
     const onScroll = () => {
@@ -32,11 +32,11 @@ export default function PromoModal() {
     };
 
     timeoutId = setTimeout(show, DELAY_MS);
-    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => {
       if (timeoutId) clearTimeout(timeoutId);
-      window.removeEventListener('scroll', onScroll, { passive: true });
+      window.removeEventListener("scroll", onScroll, { passive: true });
     };
   }, []);
 
@@ -46,35 +46,35 @@ export default function PromoModal() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
     const form = e.target;
     const name = form.name?.value?.trim();
     const phone = form.phone?.value?.trim();
     if (!name || !phone) {
-      setError('Заполните имя и телефон');
+      setError("Заполните имя и телефон");
       return;
     }
     setLoading(true);
-    
+
     try {
-      const res = await fetch('/api/telegram', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/telegram", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name,
           phone,
-          tag: 'discount-50-spring',
+          tag: "discount-50-spring",
         }),
       });
       const data = await res.json();
       if (!res.ok) {
-        setError(data.error || 'Ошибка отправки');
+        setError(data.error || "Ошибка отправки");
         return;
       }
       setSubmitted(true);
       setTimeout(handleClose, 2000);
     } catch {
-      setError('Ошибка отправки. Попробуйте позже.');
+      setError("Ошибка отправки. Попробуйте позже.");
     } finally {
       setLoading(false);
     }
@@ -106,10 +106,12 @@ export default function PromoModal() {
         <div className={styles.content}>
           <h2 className={styles.title}>Скидка 50% для новых клиентов</h2>
           <p className={styles.promocode}>
-            Промокод: <strong>Весна</strong>
+            Промокод: <strong>Лето</strong>
           </p>
           {submitted ? (
-            <p className={styles.success}>Заявка отправлена! Мы свяжемся с вами.</p>
+            <p className={styles.success}>
+              Заявка отправлена! Мы свяжемся с вами.
+            </p>
           ) : (
             <form onSubmit={handleSubmit} className={styles.form}>
               <input
@@ -129,13 +131,17 @@ export default function PromoModal() {
                 disabled={loading}
               />
               {error && <p className={styles.error}>{error}</p>}
-              <button type="submit" className={styles.submit} disabled={loading}>
-                {loading ? 'Отправка…' : 'Получить скидку'}
+              <button
+                type="submit"
+                className={styles.submit}
+                disabled={loading}
+              >
+                {loading ? "Отправка…" : "Получить скидку"}
               </button>
             </form>
           )}
           <p className={styles.privacy}>
-            Нажимая кнопку, вы даёте согласие на{' '}
+            Нажимая кнопку, вы даёте согласие на{" "}
             <a href="/personal-data" target="_blank" rel="noopener noreferrer">
               обработку персональных данных
             </a>

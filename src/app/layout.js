@@ -121,9 +121,9 @@ export default function RootLayout({ children }) {
 
       <body>
         {/* Новогодняя тема */}
-        <NewYearTheme />
+        {/* <NewYearTheme /> */}
         {/* Весенняя тема */}
-        <SpringTheme />
+        {/* <SpringTheme /> */}
 
         <Header />
         <main>{children}</main>
